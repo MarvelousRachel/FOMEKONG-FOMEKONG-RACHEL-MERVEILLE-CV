@@ -1,0 +1,308 @@
+/* Modern Resume Layout matching the provided image */
+.resume-container {
+  display: flex;
+  max-width: 1200px;
+  margin: 2rem auto;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
+  min-height: 100vh;
+}
+
+/* Left Sidebar Styles */
+.resume-sidebar {
+  width: 35%;
+  background-color: #4a4a4a;
+  color: white;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-photo {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.cv-profile-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid white;
+  display: block;
+  margin: 0 auto;
+}
+
+.cv-profile-placeholder {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: #666;
+  color: white;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin: 0 auto;
+  border: 3px solid white;
+  text-align: center;
+}
+
+.cv-profile-placeholder span {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.cv-profile-placeholder p {
+  font-size: 0.6rem;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.sidebar-section {
+  margin-bottom: 2rem;
+}
+
+.sidebar-section h2 {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: white;
+  letter-spacing: 1px;
+}
+
+.sidebar-section p {
+  line-height: 1.4;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.link-item {
+  margin-bottom: 1rem;
+}
+
+.link-item strong {
+  font-size: 0.8rem;
+}
+
+.link-item a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 0.75rem;
+}
+
+.link-item a:hover {
+  color: white;
+}
+
+.reference {
+  margin-bottom: 1.5rem;
+}
+
+.reference h3 {
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+  color: white;
+}
+
+.reference p {
+  font-size: 0.7rem;
+  margin: 0.1rem 0;
+  color: #ccc;
+}
+
+.hobbies ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.hobbies li {
+  font-size: 0.75rem;
+  margin-bottom: 0.5rem;
+  color: #ccc;
+}
+
+/* Right Main Content Styles */
+.resume-main {
+  width: 65%;
+  background-color: #f5f5f5;
+  padding: 2rem;
+}
+
+.resume-header {
+  margin-bottom: 2rem;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 1rem;
+}
+
+.resume-header h1 {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.resume-header h2 {
+  font-size: 1rem;
+  color: #666;
+  margin: 0.5rem 0 1rem 0;
+  font-weight: normal;
+  letter-spacing: 2px;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.contact-item span {
+  margin-left: 0.5rem;
+}
+
+.resume-section {
+  margin-bottom: 2rem;
+}
+
+.resume-section h2 {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #ddd;
+  letter-spacing: 1px;
+}
+
+.experience-item, .education-item {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.experience-header, .education-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.experience-header h3, .education-header h3 {
+  font-size: 0.95rem;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+}
+
+.location {
+  font-size: 0.8rem;
+  color: #666;
+  font-style: italic;
+}
+
+.position-info, .degree-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.position, .degree {
+  font-size: 0.85rem;
+  color: #555;
+  font-weight: 500;
+}
+
+.date {
+  font-size: 0.8rem;
+  color: #666;
+  font-style: italic;
+}
+
+.responsibilities, .details {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.responsibilities li, .details li {
+  font-size: 0.8rem;
+  color: #555;
+  margin-bottom: 0.3rem;
+  line-height: 1.4;
+}
+
+.skills-grid, .languages-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.skill-category, .language-item {
+  margin-bottom: 1rem;
+}
+
+.skill-category h4, .language-item h4 {
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 0.3rem;
+}
+
+.skill-bar, .language-bar {
+  width: 100%;
+  height: 8px;
+  background-color: #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.skill-fill, .language-fill {
+  height: 100%;
+  background-color: #4a4a4a;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .resume-container {
+    flex-direction: column;
+    margin: 1rem;
+  }
+  
+  .resume-sidebar {
+    width: 100%;
+    padding: 1.5rem;
+  }
+  
+  .resume-main {
+    width: 100%;
+    padding: 1.5rem;
+  }
+  
+  .resume-header h1 {
+    font-size: 1.8rem;
+  }
+  
+  .skills-grid, .languages-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .experience-header, .education-header,
+  .position-info, .degree-info {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

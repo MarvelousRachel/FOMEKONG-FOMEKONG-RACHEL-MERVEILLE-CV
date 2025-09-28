@@ -1,0 +1,292 @@
+/* Modern Resume Layout */
+.resume-container {
+  display: flex;
+  max-width: 1200px;
+  margin: 2rem auto;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* Left Sidebar Styles */
+.resume-sidebar {
+  width: 30%;
+  background-color: #333;
+  color: white;
+  padding: 2rem;
+}
+
+.profile-photo {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.cv-profile-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto;
+  border: 3px solid white;
+  display: block;
+}
+
+.cv-profile-placeholder {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: #555;
+  color: white;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  margin: 0 auto;
+  border: 3px solid white;
+  text-align: center;
+}
+
+.cv-profile-placeholder span {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.cv-profile-placeholder p {
+  font-size: 0.7rem;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.sidebar-section {
+  margin-bottom: 2rem;
+}
+
+.sidebar-section h2 {
+  font-size: 1.2rem;
+  border-bottom: 2px solid #555;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.sidebar-section p {
+  line-height: 1.6;
+  color: #ddd;
+  font-size: 0.95rem;
+}
+
+.sidebar-section ul {
+  padding-left: 1.2rem;
+  color: #ddd;
+  font-size: 0.95rem;
+}
+
+.sidebar-section li {
+  margin-bottom: 0.5rem;
+}
+
+.sidebar-section a {
+  color: #ddd;
+  text-decoration: none;
+}
+
+.sidebar-section a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+.reference {
+  margin-bottom: 1.5rem;
+}
+
+.reference h3 {
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+  color: white;
+}
+
+.reference p {
+  margin: 0.2rem 0;
+  font-size: 0.9rem;
+  color: #ddd;
+}
+
+/* Main Content Styles */
+.resume-content {
+  width: 70%;
+  padding: 2rem;
+  background-color: white;
+}
+
+.resume-header {
+  margin-bottom: 2rem;
+}
+
+.name-title h1 {
+  font-size: 2rem;
+  text-transform: uppercase;
+  margin: 0;
+  line-height: 1.2;
+  color: #333;
+}
+
+.name-title h2 {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  color: #777;
+  margin: 0.5rem 0 1.5rem 0;
+}
+
+.contact-info {
+  margin-top: 1.5rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  color: #555;
+}
+
+.contact-item svg {
+  margin-right: 0.5rem;
+  min-width: 20px;
+  color: #555;
+}
+
+/* Section Styles */
+.resume-section {
+  margin-bottom: 2.5rem;
+}
+
+.resume-section h2 {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+/* Timeline Styles */
+.timeline-item {
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 2rem;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: 0;
+  top: 5px;
+  width: 12px;
+  height: 12px;
+  background-color: #333;
+  border-radius: 50%;
+}
+
+.timeline-item:before {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 17px;
+  bottom: -17px;
+  width: 2px;
+  background-color: #ddd;
+}
+
+.timeline-item:last-child:before {
+  display: none;
+}
+
+.timeline-content h3 {
+  font-size: 1.1rem;
+  margin: 0 0 0.3rem 0;
+  color: #333;
+}
+
+.timeline-subtitle {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.8rem;
+  color: #777;
+  font-size: 0.9rem;
+}
+
+.job-details, .education-details {
+  padding-left: 1.5rem;
+  margin-top: 0.8rem;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.job-details li, .education-details li {
+  margin-bottom: 0.5rem;
+}
+
+/* Skills Styles */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.skill-category h3 {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  color: #555;
+}
+
+.skill-bar {
+  height: 6px;
+  background-color: #eee;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.skill-level {
+  height: 100%;
+  background-color: #555;
+}
+
+/* Languages Styles */
+.languages-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.language-item h3 {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  color: #555;
+}
+
+.language-bar {
+  height: 6px;
+  background-color: #eee;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.language-level {
+  height: 100%;
+  background-color: #555;
+}
+
+/* Responsive Styles */
+@media (max-width: 900px) {
+  .resume-container {
+    flex-direction: column;
+  }
+  
+  .resume-sidebar, .resume-content {
+    width: 100%;
+  }
+  
+  .skills-grid, .languages-grid {
+    grid-template-columns: 1fr;
+  }
+}
