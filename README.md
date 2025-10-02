@@ -1,11 +1,17 @@
-# React + Vite
+# Fomekong Fomekong Rachel Merveille - Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is my professional portfolio website showcasing my skills, experience, and projects.
 
-Currently, two official plugins are available:
+## Live Site
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Visit my portfolio at: [https://marvelousrachel.github.io/FOMEKONG-FOMEKONG-RACHEL-MERVEILLE-CV/](https://marvelousrachel.github.io/FOMEKONG-FOMEKONG-RACHEL-MERVEILLE-CV/)
+
+## Technologies Used
+
+- React.js
+- Vite
+- CSS
+- GitHub Pages for deployment
 
 ## Expanding the ESLint configuration
 
