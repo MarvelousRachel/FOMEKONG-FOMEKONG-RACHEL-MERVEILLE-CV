@@ -6,45 +6,39 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
+  contents: write
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout 🛎️
         uses: actions/checkout@v4
       
-      - name: Setup Node.js
+      - name: Setup Node.js 🔧
         uses: actions/setup-node@v4
         with:
           node-version: '18'
           cache: 'npm'
       
-      - name: Install dependencies
+      - name: Install dependencies 📦
         run: npm ci
       
-      - name: Build
+      - name: Build 🏗️
         run: npm run build
       
-      - name: Copy additional files
+      - name: Copy special files 📋
         run: |
           cp public/404.html dist/
           cp public/test.html dist/
+          touch dist/.nojekyll
       
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-      
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          path: './dist'
+          folder: dist
+          branch: gh-pages
+          clean: true
 
   deploy:
     environment:

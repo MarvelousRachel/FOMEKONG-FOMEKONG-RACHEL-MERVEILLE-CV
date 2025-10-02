@@ -10,7 +10,7 @@ const ModernCV = () => {
         <div className="profile-section">
           <div className="profile-image">
             {/* Replace with your actual profile image */}
-            <img src="/profile-image.jpg" alt="Rachel Merveille" />
+            <img src="./profile1.jpg" alt="Rachel Merveille" />
           </div>
         </div>
         

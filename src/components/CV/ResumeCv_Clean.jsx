@@ -7,7 +7,7 @@ const ResumeCv = () => {
       <div className="resume-sidebar">
         <div className="profile-photo">
           <img 
-            src="/profile.jpg" 
+            src="./profile1.jpg" 
             alt="Fomekong Rachel Marvelous" 
             className="cv-profile-image"
             onError={(e) => {

@@ -37,7 +37,7 @@ const About = () => {
         <div className="about-image">
           <div className="about-photo-container">
             <img 
-              src="/profile.jpg" 
+              src="./profile1.jpg" 
               alt="Fomekong Fomekong Rachel Merveille" 
               className="about-profile-image"
               onError={(e) => {
