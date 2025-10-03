@@ -1,64 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Fomekong Fomekong Rachel Merveille - Portfolio</title>
-  <script type="text/javascript">
-    // Single Page Apps for GitHub Pages
-    // MIT License
-    // Modified from https://github.com/rafgraph/spa-github-pages
-    
-    // This script takes a URL path and converts it to a route for hash-based routing
-    // This is crucial for GitHub Pages compatibility with SPAs
-    
-    (function() {
-      // GitHub Pages serves 404.html for all missing routes
-      var segmentCount = 1; // Number of segments in your GitHub Pages path (usually 1 for username.github.io/repo-name)
-      var l = window.location;
-      
-      // Don't redirect if already on the homepage
-      if (l.pathname === '/' + l.pathname.split('/')[1] + '/') return;
-      
-      // Extract the path segments after the repo name
-      var cleanPath = l.pathname.split('/').slice(segmentCount + 1).join('/');
-      
-      // Construct the base URL (protocol + hostname + repo path)
-      var repoPath = '/' + l.pathname.split('/')[1];
-      var baseUrl = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + repoPath + '/';
-      
-      // Construct the hash route - exclude 404.html itself from becoming a route
-      var hashRoute = cleanPath && cleanPath !== '404.html' ? '#/' + cleanPath.replace(/\.html$/, '') : '';
-      
-      // Redirect to the homepage with the correct hash route
-      l.replace(baseUrl + hashRoute);
-    })();
-  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redirecting...</title>
   <style>
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      text-align: center;
-      padding: 20px;
-      max-width: 600px;
-      margin: 0 auto;
       line-height: 1.6;
+      color: #333;
+      max-width: 650px;
+      margin: 0 auto;
+      padding: 20px;
     }
-    .loader {
-      display: inline-block;
+    .loading {
+      display: flex;
+      align-items: center;
+      margin: 30px 0;
+    }
+    .spinner {
+      border: 4px solid #f3f3f3;
+      border-top: 4px solid #3498db;
+      border-radius: 50%;
       width: 30px;
       height: 30px;
-      border: 3px solid rgba(0,0,0,.2);
-      border-radius: 50%;
-      border-top-color: #0366d6;
-      animation: spin 1s ease-in-out infinite;
+      margin-right: 20px;
+      animation: spin 1s linear infinite;
     }
     @keyframes spin {
-      to { transform: rotate(360deg); }
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
     }
   </style>
+  <script>
+    // Get the current path from the URL
+    var path = window.location.pathname;
+    var pathSegments = path.split('/');
+    var lastSegment = pathSegments[pathSegments.length - 1];
+    
+    // Remove .html extension if present
+    if (lastSegment.endsWith('.html')) {
+      lastSegment = lastSegment.substring(0, lastSegment.length - 5);
+    }
+    
+    // If it's a recognized route, redirect to the hash version
+    var knownRoutes = ['about', 'cv', 'skills', 'gallery', 'contact'];
+    var baseUrl = '/FOMEKONG-FOMEKONG-RACHEL-MERVEILLE-CV/';
+    
+    if (knownRoutes.includes(lastSegment)) {
+      window.location.href = baseUrl + '#/' + lastSegment;
+    } else {
+      // If not a known route, redirect to home
+      window.location.href = baseUrl;
+    }
+    
+    // Fallback if redirect doesn't happen immediately
+    setTimeout(function() {
+      window.location.href = baseUrl;
+    }, 2000);
+  </script>
 </head>
 <body>
-  <h2>Redirecting to portfolio...</h2>
-  <div class="loader"></div>
-  <p>If you're not redirected automatically, <a href="https://marvelousrachel.github.io/FOMEKONG-FOMEKONG-RACHEL-MERVEILLE-CV/">click here</a>.</p>
+  <h1>Redirecting you to the correct page...</h1>
+  <div class="loading">
+    <div class="spinner"></div>
+    <p>Please wait while we redirect you to the portfolio.</p>
+  </div>
+  <p>If you are not redirected automatically, <a href="/FOMEKONG-FOMEKONG-RACHEL-MERVEILLE-CV/">click here</a>.</p>
 </body>
 </html>
