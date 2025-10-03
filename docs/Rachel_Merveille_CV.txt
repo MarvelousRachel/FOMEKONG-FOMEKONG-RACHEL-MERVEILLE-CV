@@ -1,0 +1,76 @@
+Fomekong Fomekong Rachel Merveille
+Email: marvelous@stu.gdou.edu.cn | Phone: (+86) 166-6225-8487
+Address: Zhanjiang, Guangdong Province, 524091, China
+
+PROFESSIONAL SUMMARY
+PhD candidate in Marine Engineering at Guangdong Ocean University with a focus on underwater SLAM, robotics, and sensor fusion. Proficient in deep learning (PyTorch, TensorFlow), robot control systems (ROS2), and sensor integration (LiDAR, IMU, camera). Skilled in Python, C++, and 3D mapping techniques. Passionate about advancing autonomous robotics for real-world applications in challenging underwater environments.
+
+SKILLS
+• SLAM: ORB-SLAM3, NICE-SLAM, Visual-Lidar SLAM, Pose Graph Optimization (g2o)
+• Sensor Fusion: LiDAR, IMU, Camera, DVL
+• Deep Learning: CNNs, RNNs, GANs, PyTorch, TensorFlow
+• Programming: Python, C++, MATLAB, ROS2, Arduino
+• 3D Mapping: Open3D, Point Cloud Processing, Object Recognition
+• Tools: OpenCV, Gazebo, RViz, SolidWorks, AutoCAD
+
+EXPERIENCE
+Underwater Robotics Researcher
+Key Laboratory of Underwater Robotics, Guangdong Ocean University
+2022 - Present
+• Lead the development of underwater SLAM systems, integrating deep feature extraction and multi-detector fusion (Faster R-CNN, DETR, YOLOv8).
+• Develop visual-inertial SLAM algorithms combining IMU data and visual inputs for accurate pose estimation and trajectory refinement.
+• Implement incremental 3D reconstruction using Open3D, optimizing mapping accuracy in real-time.
+• Conduct experimental validation on underwater datasets, demonstrating improvements in pose accuracy and system efficiency.
+
+Graduate Research Student
+Huzhou University, Huzhou, Zhejiang, China
+08/2019 - 2022
+• Researched robotic automation and 3D printing technologies.
+• Published research on Industry 4.0's impact on robotics in North American Academic Research Journal.
+
+Undergraduate Student
+University of Yaoundé 1, Yaoundé, Cameroon
+08/2018 - 09/2019
+• Co-designed the I-Tech Educk platform, facilitating home tutoring services.
+• Taught mechanical physics to final-year students.
+
+EDUCATION
+PhD in Marine Engineering (Underwater Robotics, SLAM)
+Guangdong Ocean University, Zhanjiang, Guangdong, China
+Expected 2026
+Thesis: Enhancement of Underwater UUV Navigation via Visual-Lidar SLAM
+GPA: 86.9/100
+
+Master of Engineering in Control Engineering
+Huzhou University, Huzhou, Zhejiang, China
+Graduated 2022
+Thesis: Robotic Arm Design for Injection Molding
+GPA: 80.6/100
+
+Bachelor of Science in Physics
+University of Yaoundé 1, Yaoundé, Cameroon
+Graduated 2018
+
+PUBLICATIONS
+• Fomekong, F. F., & Hugejile. (2021). "The Influence of Industry 4.0: A Case Study of Injection Molding Machines, Drones, 3D Printing, and Automation Factories." North American Academic Research, 4(12), 221-238.
+• Fomekong, F. F., Jia, B., Xu, Z., & Fred, B. (2024). "Enhancing Underwater SLAM Navigation and Perception: A Comprehensive Review of Deep Learning Integration." Sensors, 24(21), 7034.
+• Fomekong, F. F., Jia, B., Xu, Z., & Fred, B. (2024). "Advancements in Sensor Fusion for Underwater SLAM: A Review on Enhanced Navigation and Environmental Perception." Sensors, 24(23), 7490.
+
+PATENTS
+• CN202022594125.5 – A Human Non-Contact Temperature Detection Device (Utility Model Patent)
+
+PROJECTS
+Underwater SLAM System Development
+Developed a complete underwater SLAM system using Python/PyTorch, integrating SuperGlue/SuperPoint feature matching and voxel mapping for robust underwater navigation.
+
+Robust Underwater Visual SLAM System
+Created a visual SLAM system using deep feature matching, OpenCV, Open3D, and pose graph optimization for high-accuracy mapping in low-visibility underwater environments.
+
+LANGUAGES
+• English: Fluent
+• Mandarin: Intermediate (HSK 3)
+• French: Fluent
+
+ACCOMPLISHMENTS
+• Proficient in deep learning and robotic systems, improving accuracy and system performance.
+• Extensive experience in problem-solving, model training, and performance enhancement.
