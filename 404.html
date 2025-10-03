@@ -4,22 +4,61 @@
   <meta charset="utf-8" />
   <title>Fomekong Fomekong Rachel Merveille - Portfolio</title>
   <script type="text/javascript">
-    // Redirect to the homepage with hash routing
-    var pathSegmentsToKeep = 1;
-    var l = window.location;
-    var cleanPath = l.pathname.split('/').slice(pathSegmentsToKeep).join('/');
-    var targetPath = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-      l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/');
-      
-    // If there's a specific path requested, add it to the hash
-    if (cleanPath && cleanPath !== "404.html") {
-      targetPath += '#/' + cleanPath;
-    }
+    // Single Page Apps for GitHub Pages
+    // MIT License
+    // Modified from https://github.com/rafgraph/spa-github-pages
     
-    window.location.replace(targetPath);
+    // This script takes a URL path and converts it to a route for hash-based routing
+    // This is crucial for GitHub Pages compatibility with SPAs
+    
+    (function() {
+      // GitHub Pages serves 404.html for all missing routes
+      var segmentCount = 1; // Number of segments in your GitHub Pages path (usually 1 for username.github.io/repo-name)
+      var l = window.location;
+      
+      // Don't redirect if already on the homepage
+      if (l.pathname === '/' + l.pathname.split('/')[1] + '/') return;
+      
+      // Extract the path segments after the repo name
+      var cleanPath = l.pathname.split('/').slice(segmentCount + 1).join('/');
+      
+      // Construct the base URL (protocol + hostname + repo path)
+      var repoPath = '/' + l.pathname.split('/')[1];
+      var baseUrl = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + repoPath + '/';
+      
+      // Construct the hash route - exclude 404.html itself from becoming a route
+      var hashRoute = cleanPath && cleanPath !== '404.html' ? '#/' + cleanPath.replace(/\.html$/, '') : '';
+      
+      // Redirect to the homepage with the correct hash route
+      l.replace(baseUrl + hashRoute);
+    })();
   </script>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    .loader {
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      border: 3px solid rgba(0,0,0,.2);
+      border-radius: 50%;
+      border-top-color: #0366d6;
+      animation: spin 1s ease-in-out infinite;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
 </head>
 <body>
-  <h2>Redirecting to homepage...</h2>
+  <h2>Redirecting to portfolio...</h2>
+  <div class="loader"></div>
+  <p>If you're not redirected automatically, <a href="https://marvelousrachel.github.io/FOMEKONG-FOMEKONG-RACHEL-MERVEILLE-CV/">click here</a>.</p>
 </body>
 </html>
