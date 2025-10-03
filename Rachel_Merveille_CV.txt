@@ -1,0 +1,76 @@
+FOMEKONG FOMEKONG RACHEL MERVEILLE
+==================================
+PhD Candidate in Marine Engineering
+----------------------------------
+
+Contact: rachelmerveille@example.com | +86 123 456 7890 | Guangdong, China
+LinkedIn: linkedin.com/in/rachel-merveille | GitHub: github.com/MarvelousRachel
+
+ABOUT ME
+--------
+Highly skilled and dedicated researcher with a focus on underwater robotics, SLAM, and deep learning. 
+Published multiple papers in renowned scientific journals and presented findings at international conferences. 
+Looking for a challenging position to apply and further develop my skills.
+
+WORK EXPERIENCE
+--------------
+PhD Researcher | Guangdong Ocean University, China | 2022 - Present
+- Conducted research on underwater SLAM systems for UUVs
+- Published several papers in prestigious scientific journals
+- Collaborated with fellow researchers on various projects
+- Presented findings at international conferences
+
+Research Assistant | Huzhou University, China | 2020 - 2022
+- Assisted in theoretical physics research
+- Conducted experiments and collected data
+- Co-authored research papers
+- Assisted in teaching undergraduate courses
+
+EDUCATION
+---------
+PhD in Marine Engineering | Guangdong Ocean University, China | 2022 - 2026 (Expected)
+- Specializing in underwater robotics, SLAM, and deep learning
+- Published several papers in renowned scientific journals
+
+Master of Engineering in Control Engineering | Huzhou University, China | 2020 - 2022
+- GPA: 80.6/100
+- Developed a non-contact temperature detection device (Utility Model Patent)
+
+Bachelor of Science in Physics | University of Yaoundé 1, Cameroon | 2014 - 2018
+
+SKILLS
+------
+- Underwater Robotics (Expert)
+- SLAM (Expert)
+- Deep Learning (Advanced)
+- Sensor Fusion (Expert)
+- Python (Expert)
+- C++ (Advanced)
+- ROS/ROS2 (Expert)
+- Scientific Writing (Expert)
+
+LANGUAGES
+---------
+- English (Fluent)
+- French (Native)
+- Chinese (Mandarin) (Intermediate)
+
+REFERENCES
+----------
+Prof. Zhang Wei
+Guangdong Ocean University
+T: +86 123 456 7890
+E: zhang.wei@gdou.edu.cn
+
+Prof. Li Jianping
+Huzhou University
+T: +86 987 654 3210
+E: li.jianping@huzhou.edu.cn
+
+HOBBIES
+-------
+- Underwater Photography
+- Robotics Projects
+- Reading Scientific Papers
+- Programming Challenges
+- Mountain Hiking
