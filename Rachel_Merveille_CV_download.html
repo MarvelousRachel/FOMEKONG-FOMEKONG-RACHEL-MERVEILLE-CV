@@ -5,6 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rachel Merveille - Curriculum Vitae</title>
   <style>
+    /* Script to ensure image loading before print */
+    @media print {
+      html.js-loading-image body {
+        visibility: hidden;
+      }
+      html.js-loading-image .profile-image {
+        visibility: visible;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+    
     /* Reset some default browser styles */
     * {
       margin: 0;
@@ -54,12 +68,17 @@
         position: relative !important;
         z-index: 9999 !important;
         page-break-inside: avoid;
+        break-inside: avoid;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
       }
       
       .profile-image img {
         display: block !important;
         visibility: visible !important;
         opacity: 1 !important;
+        page-break-inside: avoid;
+        break-inside: avoid;
       }
     }
     
@@ -294,12 +313,45 @@
       }
     }
   </style>
+  <script>
+    // Add class to indicate image loading state
+    document.documentElement.classList.add('js-loading-image');
+    
+    // Ensure image is fully loaded before printing
+    window.addEventListener('load', function() {
+      document.documentElement.classList.remove('js-loading-image');
+      
+      // Force image to be loaded before printing
+      const profileImage = document.querySelector('.profile-image img');
+      if (profileImage) {
+        const img = new Image();
+        img.onload = function() {
+          // Image is fully loaded
+          console.log("Profile image fully loaded");
+        };
+        img.src = profileImage.src;
+      }
+    });
+    
+    // Intercept print command to ensure image is loaded
+    window.addEventListener('beforeprint', function(event) {
+      const profileImage = document.querySelector('.profile-image img');
+      if (!profileImage.complete) {
+        event.preventDefault();
+        profileImage.onload = function() {
+          setTimeout(function() {
+            window.print();
+          }, 500);
+        };
+      }
+    });
+  </script>
 </head>
 <body>
   <!-- Left column -->
   <div class="left-column">
     <div class="profile-image">
-      <img src="https://marvelousrachel.github.io/FOMEKONG-FOMEKONG-RACHEL-MERVEILLE-CV/profile1.jpg" alt="Fomekong Fomekong Rachel Merveille" width="150" height="150">
+      <img src="https://marvelousrachel.github.io/FOMEKONG-FOMEKONG-RACHEL-MERVEILLE-CV/profile1.jpg" alt="Fomekong Fomekong Rachel Merveille" width="150" height="150" loading="eager" decoding="sync" fetchpriority="high" onload="this.classList.add('loaded')" style="opacity: 1; visibility: visible;">
     </div>
     
     <div class="about-me">
@@ -310,9 +362,9 @@
     <div class="contact-info">
       <h2 class="section-title">Contact Information</h2>
       <p><span>📍</span> Zhanjiang, Guangdong Province, 524091, China</p>
-      <p><span>�</span> (+86) 166-6225-8487</p>
+      <p><span>📱</span> (+86) 166-6225-8487</p>
       <p><span>📧</span> marvelous@stu.gdou.edu.cn</p>
-      <p><span>�</span> ORCID: 0009-0007-2659-3982</p>
+      <p><span>🆔</span> ORCID: 0009-0007-2659-3982</p>
     </div>
     
     <div class="skills">
@@ -375,8 +427,9 @@
       </div>
       <div class="reference">
         <p><strong>Sr. Hugejile</strong></p>
-        <p>School of Science, Huzhou University</p>
-        <p>ORCID: <a href="https://orcid.org/0009-0007-2659-3982" style="color: #fff;">0009-0007-2659-3982</a></p>
+        <p>School of Science</p>
+        <p>Huzhou University</p>
+        <p>Huzhou, China</p>
       </div>
     </div>
   </div>
@@ -391,7 +444,7 @@
     <div class="section">
       <h2>Education</h2>
       <div class="education-item">
-        <h3>PhD in Marine Engineering (Underwater Robotics, SLAM) <span class="institution">| Guangdong Ocean University, China</span></h3>
+        <h3>PhD in Marine Engineering (Underwater Robotics, SLAM) <span class="institution">| Guangdong Ocean University, Zhanjiang, Guangdong, China</span></h3>
         <p class="period">Expected 2026</p>
         <p>Thesis: Enhancement of Underwater UUV Navigation via Visual-Lidar SLAM</p>
         <p>GPA: 86.9/100</p>
