@@ -42,6 +42,24 @@
       display: block;
     }
     
+    /* Print-specific styles to ensure the image displays properly when downloaded */
+    @media print {
+      .profile-image {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        position: relative !important;
+        z-index: 9999 !important;
+        page-break-inside: avoid;
+      }
+      
+      .profile-image img {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+      }
+    }
+    
     .about-me {
       margin-bottom: 30px;
     }
@@ -284,7 +302,7 @@
   <!-- Left column -->
   <div class="left-column">
     <div class="profile-image">
-      <img src="profile1.jpg" alt="Fomekong Fomekong Rachel Merveille">
+      <img src="profile1.jpg" alt="Fomekong Fomekong Rachel Merveille" width="150" height="150">
     </div>
     
     <div class="about-me">
