@@ -10,20 +10,66 @@
  * - Modern UI with hover effects
  */
 
-// Utility function to hide download buttons before export
-function hideDownloadOptions() {
+// Utility function to prepare document for export (hide all UI elements)
+function prepareForExport() {
+  // Add a class to the body for export-specific CSS
+  document.body.classList.add('exporting');
+  
+  // Hide download options
   const downloadOptions = document.querySelector('.download-options');
   if (downloadOptions) {
+    downloadOptions.setAttribute('aria-hidden', 'true');
     downloadOptions.style.display = 'none';
   }
+  
+  // Hide any other navigation or UI elements
+  const navElements = document.querySelectorAll('nav, .nav, .nav-container, .navigation, header, footer');
+  navElements.forEach(el => {
+    if (el) {
+      el.setAttribute('data-original-display', el.style.display || 'block');
+      el.style.display = 'none';
+    }
+  });
+  
+  // Hide any buttons, links or interactive elements that won't work in PDF/image
+  const interactiveElements = document.querySelectorAll('.download-button, .btn, button:not(.print-only)');
+  interactiveElements.forEach(el => {
+    if (el && !el.classList.contains('print-safe')) {
+      el.setAttribute('data-original-display', el.style.display || 'inline-block');
+      el.style.display = 'none';
+    }
+  });
 }
 
-// Utility function to show download buttons after export
-function showDownloadOptions() {
+// Utility function to restore document after export
+function restoreAfterExport() {
+  // Remove the export class
+  document.body.classList.remove('exporting');
+  
+  // Restore download options
   const downloadOptions = document.querySelector('.download-options');
   if (downloadOptions) {
+    downloadOptions.removeAttribute('aria-hidden');
     downloadOptions.style.display = 'flex';
   }
+  
+  // Restore any hidden navigation elements
+  const navElements = document.querySelectorAll('nav, .nav, .nav-container, .navigation, header, footer');
+  navElements.forEach(el => {
+    if (el && el.hasAttribute('data-original-display')) {
+      el.style.display = el.getAttribute('data-original-display');
+      el.removeAttribute('data-original-display');
+    }
+  });
+  
+  // Restore interactive elements
+  const interactiveElements = document.querySelectorAll('.download-button, .btn, button:not(.print-only)');
+  interactiveElements.forEach(el => {
+    if (el && el.hasAttribute('data-original-display')) {
+      el.style.display = el.getAttribute('data-original-display');
+      el.removeAttribute('data-original-display');
+    }
+  });
 }
 
 // Expose download functions to global window object for external access
@@ -205,8 +251,8 @@ function downloadAsPDF() {
   loadingOverlay.appendChild(message);
   document.body.appendChild(loadingOverlay);
   
-  // Hide download buttons for PDF capture
-  hideDownloadOptions();
+  // Hide UI elements for PDF capture
+  prepareForExport();
   
   // Apply print-specific styling for better PDF output
   const printStyle = document.createElement('style');
@@ -297,8 +343,8 @@ function downloadAsPDF() {
       // Download the PDF with proper filename
       pdf.save('Rachel_Merveille_CV.pdf');
       
-      // Show download buttons again
-      showDownloadOptions();
+      // Restore UI elements
+      restoreAfterExport();
       
       // Remove loading overlay
       document.body.removeChild(loadingOverlay);
@@ -328,8 +374,8 @@ function downloadAsImage() {
   loadingOverlay.appendChild(message);
   document.body.appendChild(loadingOverlay);
   
-  // Hide download buttons for capture
-  hideDownloadOptions();
+  // Hide UI elements for capture
+  prepareForExport();
   
   // Apply print-specific styling for better image output
   const imageStyle = document.createElement('style');
@@ -382,8 +428,8 @@ function downloadAsImage() {
       link.href = canvas.toDataURL('image/png', 1.0);
       link.click();
       
-      // Show download buttons again
-      showDownloadOptions();
+      // Restore UI elements
+      restoreAfterExport();
       
       // Remove loading overlay
       document.body.removeChild(loadingOverlay);
