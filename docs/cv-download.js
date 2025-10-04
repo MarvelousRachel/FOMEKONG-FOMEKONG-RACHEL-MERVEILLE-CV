@@ -10,6 +10,22 @@
  * - Modern UI with hover effects
  */
 
+// Utility function to hide download buttons before export
+function hideDownloadOptions() {
+  const downloadOptions = document.querySelector('.download-options');
+  if (downloadOptions) {
+    downloadOptions.style.display = 'none';
+  }
+}
+
+// Utility function to show download buttons after export
+function showDownloadOptions() {
+  const downloadOptions = document.querySelector('.download-options');
+  if (downloadOptions) {
+    downloadOptions.style.display = 'flex';
+  }
+}
+
 // Expose download functions to global window object for external access
 window.downloadAsPDF = downloadAsPDF;
 window.downloadAsImage = downloadAsImage;
@@ -59,7 +75,6 @@ window.addEventListener('DOMContentLoaded', function() {
   downloadOptions.appendChild(imageButton);
   downloadOptions.appendChild(printButton);
   downloadOptions.appendChild(websiteButton); // Add the website button
-  downloadOptions.appendChild(websiteButton);
   
   // Add container to body
   document.body.insertBefore(downloadOptions, document.body.firstChild);
@@ -171,7 +186,7 @@ function loadScript(url, callback) {
   document.head.appendChild(script);
 }
 
-// Generate and download PDF version of CV
+// Generate and download PDF of CV
 function downloadAsPDF() {
   // Create loading overlay with spinner
   const loadingOverlay = document.createElement('div');
@@ -190,10 +205,8 @@ function downloadAsPDF() {
   loadingOverlay.appendChild(message);
   document.body.appendChild(loadingOverlay);
   
-  // Hide download buttons for capture
-  const downloadButtons = document.querySelector('.download-options');
-  const originalDisplayStyle = downloadButtons.style.display;
-  downloadButtons.style.display = 'none';
+  // Hide download buttons for PDF capture
+  hideDownloadOptions();
   
   // Apply print-specific styling for better PDF output
   const printStyle = document.createElement('style');
@@ -285,7 +298,7 @@ function downloadAsPDF() {
       pdf.save('Rachel_Merveille_CV.pdf');
       
       // Show download buttons again
-      downloadButtons.style.display = originalDisplayStyle;
+      showDownloadOptions();
       
       // Remove loading overlay
       document.body.removeChild(loadingOverlay);
@@ -316,9 +329,7 @@ function downloadAsImage() {
   document.body.appendChild(loadingOverlay);
   
   // Hide download buttons for capture
-  const downloadButtons = document.querySelector('.download-options');
-  const originalDisplayStyle = downloadButtons.style.display;
-  downloadButtons.style.display = 'none';
+  hideDownloadOptions();
   
   // Apply print-specific styling for better image output
   const imageStyle = document.createElement('style');
@@ -372,7 +383,7 @@ function downloadAsImage() {
       link.click();
       
       // Show download buttons again
-      downloadButtons.style.display = originalDisplayStyle;
+      showDownloadOptions();
       
       // Remove loading overlay
       document.body.removeChild(loadingOverlay);
