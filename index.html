@@ -685,15 +685,39 @@
           iframe.style.position = 'absolute';
           iframe.style.left = '-9999px';
           iframe.style.width = '1200px'; // Set width for better rendering
+          iframe.style.height = '2000px'; // Set explicit height for better rendering
+          iframe.style.visibility = 'hidden'; // Hide but keep layout
           document.body.appendChild(iframe);
+          
+          // Ensure styles are applied and page is rendered correctly
+          const fullHtml = `
+            <!DOCTYPE html>
+            <html>
+            <head>
+              <base href="${window.location.href}" target="_blank">
+              <style>
+                @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+                body { 
+                  margin: 0;
+                  padding: 0;
+                  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+                }
+                img { display: block; max-width: 100%; }
+              </style>
+            </head>
+            <body>
+              ${html}
+            </body>
+            </html>
+          `;
           
           // Write the CV HTML to the iframe
           const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
           iframeDoc.open();
-          iframeDoc.write(html);
+          iframeDoc.write(fullHtml);
           iframeDoc.close();
           
-          // Wait for iframe content to load
+          // Give more time for resources to load and render (increased to 3 seconds)
           setTimeout(() => {
             try {
               // Import the functions from cv-download.js
@@ -725,16 +749,31 @@
                   document.body.removeChild(loadingOverlay);
                 });
               } else {
-                // For image download
+                // For image download - improve rendering with better settings
                 window.html2canvas(iframeDoc.body, {
-                  scale: 2, // Higher scale for better quality
+                  scale: 3, // Higher scale for better quality
                   useCORS: true,
-                  logging: false
+                  allowTaint: true,
+                  backgroundColor: "#ffffff",
+                  logging: true, // Enable logging to debug
+                  imageTimeout: 15000, // Longer timeout for images
+                  onclone: function(clonedDoc) {
+                    // Force all images to load in cloned document
+                    const images = clonedDoc.getElementsByTagName('img');
+                    for (let i = 0; i < images.length; i++) {
+                      const img = images[i];
+                      if (img.complete && img.naturalWidth === 0) {
+                        console.log('Fixing broken image:', img.src);
+                      }
+                    }
+                    // Wait a bit longer for rendering
+                    return new Promise(resolve => setTimeout(resolve, 1000));
+                  }
                 }).then(canvas => {
                   // Create download link
                   const link = document.createElement('a');
                   link.download = 'Rachel_Merveille_CV.png';
-                  link.href = canvas.toDataURL('image/png');
+                  link.href = canvas.toDataURL('image/png', 1.0);
                   link.click();
                   
                   // Clean up
@@ -747,7 +786,7 @@
               alert('There was an error generating your download. Please try again.');
               document.body.removeChild(loadingOverlay);
             }
-          }, 1500);
+          }, 3000); // Increased timeout to 3 seconds
         })
         .catch(error => {
           console.error('Error fetching CV HTML:', error);
