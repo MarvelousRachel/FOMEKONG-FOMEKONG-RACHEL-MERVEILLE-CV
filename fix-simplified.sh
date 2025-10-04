@@ -1,3 +1,24 @@
+#!/bin/bash
+
+echo "🛠️ Creating a simplified fix for blank pages..."
+
+# Clean and prepare
+echo "🧹 Cleaning workspace..."
+rm -rf node_modules/.cache
+rm -rf dist
+
+# Install dependencies
+echo "📦 Installing dependencies..."
+npm ci
+
+# Fix the assetUtils.js file
+echo "🔧 Fixing asset utilities..."
+mv /Users/fomekongrachelmarvelous/Desktop/FOMEKONG\ FOMEKONG\ /portfolio/src/utils/assetUtils.js.new \
+   /Users/fomekongrachelmarvelous/Desktop/FOMEKONG\ FOMEKONG\ /portfolio/src/utils/assetUtils.js
+
+# Simplified App.jsx that doesn't use JSX in utils
+echo "🔄 Creating simplified App.jsx..."
+cat > /Users/fomekongrachelmarvelous/Desktop/FOMEKONG\ FOMEKONG\ /portfolio/src/App.jsx << 'EOL'
 import { HashRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { getAssetPath } from './utils/assetUtils';
 import './App.css';
@@ -532,3 +553,35 @@ function App() {
 }
 
 export default App;
+EOL
+
+# Build the project with proper base path
+echo "🔨 Building project..."
+npm run build
+
+# Create necessary GitHub Pages files
+echo "📄 Creating GitHub Pages files..."
+touch dist/.nojekyll
+cp -R public/* dist/
+
+# Create a special no-cache meta tag for index.html
+echo "🚫 Adding no-cache headers to index.html..."
+sed -i '' 's/<meta name="viewport".*/<meta name="viewport" content="width=device-width, initial-scale=1.0" \/>\n    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" \/>\n    <meta http-equiv="Pragma" content="no-cache" \/>\n    <meta http-equiv="Expires" content="0" \/>/' dist/index.html
+
+# Show what we're deploying
+echo "📋 Listing files to be deployed:"
+find dist -type f | sort
+
+# Deploy to GitHub Pages
+echo "🚀 Deploying to GitHub Pages..."
+npx gh-pages -d dist -t
+
+echo "✅ Deployment complete!"
+echo "🌍 Your site will be available at: https://marvelousrachel.github.io/FOMEKONG-FOMEKONG-RACHEL-MERVEILLE-CV/"
+echo "⏱️ Allow 5-10 minutes for GitHub Pages to update"
+echo ""
+echo "📱 Important instructions to fix blank pages:"
+echo "1. Clear your browser cache COMPLETELY (Cmd+Shift+Delete on Mac)"
+echo "2. Try accessing in INCOGNITO/PRIVATE mode"
+echo "3. Try a DIFFERENT browser if possible"
+echo "4. Make sure to use HASH routes: https://marvelousrachel.github.io/FOMEKONG-FOMEKONG-RACHEL-MERVEILLE-CV/#/about"

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skills - Fomekong Fomekong Rachel Merveille</title>
+  <meta name="description" content="Skills of Fomekong Fomekong Rachel Merveille">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <style>
+    /* Base styles */
+    :root {
+      --navy: #0a192f;
+      --light-navy: #112240;
+      --lightest-navy: #233554;
+      --slate: #8892b0;
+      --light-slate: #a8b2d1;
+      --lightest-slate: #ccd6f6;
+      --white: #e6f1ff;
+      --green: #64ffda;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--navy);
+      color: var(--lightest-slate);
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    
+    /* Navigation */
+    nav {
+      background-color: var(--light-navy);
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid var(--lightest-navy);
+    }
+    
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .logo {
+      color: var(--white);
+      font-weight: 700;
+      font-size: 1.2rem;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    .logo:hover {
+      color: var(--green);
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+    
+    .nav-link {
+      color: var(--light-slate);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    .nav-link:hover {
+      color: var(--green);
+    }
+    
+    /* Skills Section */
+    .skills-section {
+      padding: 6rem 0;
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      color: var(--white);
+    }
+    
+    .skills-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 3rem;
+    }
+    
+    .skill-category {
+      background-color: var(--light-navy);
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
+    }
+    
+    h2 {
+      color: var(--green);
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid var(--lightest-navy);
+      padding-bottom: 0.75rem;
+    }
+    
+    .skill-list {
+      list-style-type: none;
+    }
+    
+    .skill-item {
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+    }
+    
+    .skill-item::before {
+      content: "▹";
+      color: var(--green);
+      margin-right: 10px;
+      font-size: 1.2rem;
+    }
+    
+    .skill-detail {
+      color: var(--light-slate);
+    }
+    
+    footer {
+      background-color: var(--light-navy);
+      padding: 2rem;
+      text-align: center;
+      border-top: 1px solid var(--lightest-navy);
+      margin-top: 4rem;
+    }
+    
+    @media (max-width: 768px) {
+      .skills-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-container">
+      <a href="index.html" class="logo">Fomekong Fomekong Rachel Merveille</a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="cv.html" class="nav-link">CV</a>
+        <a href="skills.html" class="nav-link">Skills</a>
+        <a href="projects.html" class="nav-link">Projects</a>
+        <a href="publications.html" class="nav-link">Publications</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </div>
+    </div>
+  </nav>
+  
+  <main>
+    <section class="skills-section container">
+      <h1>Skills & Expertise</h1>
+      
+      <div class="skills-container">
+        <div class="skill-category">
+          <h2>SLAM & Navigation</h2>
+          <ul class="skill-list">
+            <li class="skill-item">
+              <span class="skill-detail">ORB-SLAM3 implementation and optimization</span>
+            </li>
+            <li class="skill-item">
+              <span class="skill-detail">NICE-SLAM for environment mapping</span>
+            </li>
+            <li class="skill-item">
+              <span class="skill-detail">Visual-Lidar SLAM integration</span>
+            </li>
+            <li class="skill-item">
+              <span class="skill-detail">Pose Graph Optimization using g2o</span>
+            </li>
+            <li class="skill-item">
+              <span class="skill-detail">Loop closure detection</span>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="skill-category">
+          <h2>Sensor Fusion</h2>
+          <ul class="skill-list">
+            <li class="skill-item">
+              <span class="skill-detail">LiDAR data processing and integration</span>
+            </li>
+            <li class="skill-item">
+              <span class="skill-detail">IMU pre-integration and calibration</span>
+            </li>
+            <li class="skill-item">
+              <span class="skill-detail">Camera sensor calibration</span>
+            </li>
+            <li class="skill-item">
+              <span class="skill-detail">DVL integration for underwater navigation</span>
+            </li>
+            <li class="skill-item">
+              <span class="skill-detail">Extended Kalman Filter (EKF) implementation</span>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="skill-category">
+          <h2>Deep Learning</h2>
+          <ul class="skill-list">
+            <li class="skill-item">
+              <span class="skill-detail">Convolutional Neural Networks (CNNs)</span>
+            </li>
+            <li class="skill-item">
+              <span class="skill-detail">Recurrent Neural Networks (RNNs)</span>
+            </li>
+            <li class="skill-item">
+              <span class="skill-detail">Generative Adversarial Networks (GANs)</span>
+            </li>
+            <li class="skill-item">
+              <span class="skill-detail">PyTorch framework</span>
+            </li>
+            <li class="skill-item">
+              <span class="skill-detail">TensorFlow framework</span>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="skill-category">
+          <h2>Programming</h2>
+          <ul class="skill-list">
+            <li class="skill-item">
+              <span class="skill-detail">Python development</span>
+            </li>
+            <li class="skill-item">
+              <span class="skill-detail">C++ optimization</span>
+            </li>
+            <li class="skill-item">
+              <span class="skill-detail">MATLAB simulation</span>
+            </li>
+            <li class="skill-item">
+              <span class="skill-detail">ROS2 integration</span>
+            </li>
+            <li class="skill-item">
+              <span class="skill-detail">Arduino prototyping</span>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="skill-category">
+          <h2>3D Mapping</h2>
+          <ul class="skill-list">
+            <li class="skill-item">
+              <span class="skill-detail">Open3D library utilization</span>
+            </li>
+            <li class="skill-item">
+              <span class="skill-detail">Point Cloud Processing</span>
+            </li>
+            <li class="skill-item">
+              <span class="skill-detail">Object Recognition in 3D space</span>
+            </li>
+            <li class="skill-item">
+              <span class="skill-detail">3D reconstruction algorithms</span>
+            </li>
+            <li class="skill-item">
+              <span class="skill-detail">Mesh generation from point clouds</span>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="skill-category">
+          <h2>Tools & Software</h2>
+          <ul class="skill-list">
+            <li class="skill-item">
+              <span class="skill-detail">OpenCV for image processing</span>
+            </li>
+            <li class="skill-item">
+              <span class="skill-detail">Gazebo simulation environment</span>
+            </li>
+            <li class="skill-item">
+              <span class="skill-detail">RViz visualization</span>
+            </li>
+            <li class="skill-item">
+              <span class="skill-detail">SolidWorks for 3D modeling</span>
+            </li>
+            <li class="skill-item">
+              <span class="skill-detail">AutoCAD for technical drawings</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <footer>
+    <p>&copy; 2025 Fomekong Fomekong Rachel Merveille. All rights reserved.</p>
+  </footer>
+</body>
+</html>
