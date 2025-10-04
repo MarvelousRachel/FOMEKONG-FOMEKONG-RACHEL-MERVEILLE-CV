@@ -59,7 +59,26 @@
       color: #fff;
       text-decoration: none;
       display: block;
-      margin-bottom: 8px;
+      margin-bottom: 12px;
+      position: relative;
+    }
+    
+    .links a.github::before {
+      content: "🔗";
+      margin-right: 8px;
+      font-size: 14px;
+    }
+    
+    .links a.website::before {
+      content: "🌐";
+      margin-right: 8px;
+      font-size: 14px;
+    }
+    
+    .links a.email::before {
+      content: "📧";
+      margin-right: 8px;
+      font-size: 14px;
     }
     
     .reference {
@@ -275,8 +294,10 @@
     
     <div class="links">
       <h2 class="section-title">Links</h2>
-      <a href="mailto:marvelous@stu.gdou.edu.cn">marvelous@stu.gdou.edu.cn</a>
-      <a href="https://marvelousrachel.github.io/FOMEKONG-FOMEKONG-RACHEL-MERVEILLE-CV/" target="_blank">Portfolio Website</a>
+      <a href="mailto:marvelous@stu.gdou.edu.cn" class="email">marvelous@stu.gdou.edu.cn</a>
+      <a href="https://marvelousrachel.github.io/FOMEKONG-FOMEKONG-RACHEL-MERVEILLE-CV/#skills" target="_blank" class="website">Portfolio Website (Skills Section)</a>
+      <a href="https://github.com/MarvelousGrace" target="_blank" class="github">GitHub (MarvelousGrace)</a>
+      <a href="https://github.com/MarvelousRachel" target="_blank" class="github">GitHub (MarvelousRachel)</a>
     </div>
     
     <div class="references">
