@@ -52,12 +52,9 @@ University of Yaoundé 1, Yaoundé, Cameroon
 Graduated 2018
 
 PUBLICATIONS
-• Underwater Visual SLAM Using Feature Matching
-	Sensors Journal | 2023
-	A novel approach to underwater visual SLAM using SuperPoint and SuperGlue feature matching, accounting for water turbidity and lighting variations.
-• Multi-sensor Fusion for Robust Underwater Navigation
-	IEEE Transactions on Robotics | 2022
-	A framework for fusing data from multiple sensors to enhance underwater navigation accuracy in challenging environments.
+• Fomekong, F. F., & Hugejile. (2021). "The Influence of Industry 4.0: A Case Study of Injection Molding Machines, Drones, 3D Printing, and Automation Factories." North American Academic Research, 4(12), 221-238.
+• Fomekong, F. F., Jia, B., Xu, Z., & Fred, B. (2024). "Enhancing Underwater SLAM Navigation and Perception: A Comprehensive Review of Deep Learning Integration." Sensors, 24(21), 7034.
+• Fomekong, F. F., Jia, B., Xu, Z., & Fred, B. (2024). "Advancements in Sensor Fusion for Underwater SLAM: A Review on Enhanced Navigation and Environmental Perception." Sensors, 24(23), 7490.
 
 AWARDS & PATENTS
 • Guangdong Provincial Scholarship
