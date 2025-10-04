@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rachel Merveille - Curriculum Vitae</title>
+  <style>
+    /* Reset some default browser styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+    
+    body {
+      display: flex;
+      min-height: 100vh;
+      background-color: #f5f5f5;
+    }
+    
+    /* Two-column layout */
+    .left-column {
+      width: 30%;
+      background-color: #212529;
+      color: #fff;
+      padding: 2rem;
+    }
+    
+    .profile-image {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 0 auto 20px;
+      border: 3px solid #3a3a3a;
+      position: relative;
+      z-index: 10;
+    }
+    
+    .profile-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    
+    /* Print-specific styles to ensure the image displays properly when downloaded */
+    @media print {
+      .profile-image {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        position: relative !important;
+        z-index: 9999 !important;
+        page-break-inside: avoid;
+      }
+      
+      .profile-image img {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+      }
+    }
+    
+    .about-me {
+      margin-bottom: 1.5rem;
+    }
+    
+    .about-me p {
+      margin-bottom: 0.8rem;
+      line-height: 1.6;
+      color: #ccc;
+    }
+    
+    .contact-info {
+      margin-bottom: 1.5rem;
+    }
+    
+    .contact-info p {
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      color: #ccc;
+    }
+    
+    .contact-info p span {
+      margin-right: 8px;
+    }
+    
+    .section-title {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      color: #fff;
+      border-bottom: 1px solid #3a3a3a;
+      padding-bottom: 8px;
+    }
+    
+    .skills {
+      margin-bottom: 1.5rem;
+    }
+    
+    .skills-list {
+      list-style: none;
+    }
+    
+    .skills-list li {
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      color: #ccc;
+    }
+    
+    .skills-list li:before {
+      content: "▹";
+      margin-right: 8px;
+      color: #ccc;
+    }
+    
+    .languages {
+      margin-bottom: 1.5rem;
+    }
+    
+    .languages-list {
+      list-style: none;
+    }
+    
+    .languages-list li {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+      color: #ccc;
+    }
+    
+    .progress-bar {
+      width: 100px;
+      height: 6px;
+      background-color: #3a3a3a;
+      border-radius: 3px;
+      overflow: hidden;
+      margin-left: 10px;
+    }
+    
+    .progress {
+      height: 100%;
+      background-color: #64ffda;
+    }
+    
+    .links a {
+      color: #fff;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 12px;
+      position: relative;
+    }
+    
+    .links a.github::before {
+      content: "🔗";
+      margin-right: 8px;
+      font-size: 14px;
+    }
+    
+    .links a.website::before {
+      content: "🌐";
+      margin-right: 8px;
+      font-size: 14px;
+    }
+    
+    .links a.email::before {
+      content: "📧";
+      margin-right: 8px;
+      font-size: 14px;
+    }
+    
+    .links a:hover {
+      color: #64ffda;
+    }
+    
+    .references {
+      margin-top: 1.5rem;
+    }
+    
+    .reference {
+      margin-bottom: 1.2rem;
+    }
+    
+    .reference p {
+      margin-bottom: 0.3rem;
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+    
+    /* Right column */
+    .right-column {
+      width: 70%;
+      padding: 2rem;
+      background-color: #fff;
+    }
+    
+    .section {
+      margin-bottom: 2rem;
+    }
+    
+    .section h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #212529;
+      border-bottom: 2px solid #64ffda;
+      padding-bottom: 8px;
+      display: inline-block;
+    }
+    
+    .header {
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    
+    .name {
+      font-size: 2.5rem;
+      color: #212529;
+      margin-bottom: 0.5rem;
+    }
+    
+    .title {
+      font-size: 1.2rem;
+      color: #666;
+      margin-bottom: 0.5rem;
+    }
+    
+    .experience-item, .education-item, .project-item, .publication-item {
+      margin-bottom: 1.5rem;
+    }
+    
+    .experience-item h3, .education-item h3, .project-item h3 {
+      font-size: 1.1rem;
+      color: #212529;
+      margin-bottom: 0.3rem;
+    }
+    
+    .experience-item .company, .education-item .institution {
+      font-weight: normal;
+      color: #666;
+    }
+    
+    .experience-item .period, .education-item .period {
+      font-size: 0.9rem;
+      color: #888;
+      margin-bottom: 0.5rem;
+    }
+    
+    .experience-item ul, .project-item ul {
+      margin-left: 1.5rem;
+      margin-top: 0.5rem;
+    }
+    
+    .experience-item li, .project-item li {
+      margin-bottom: 0.3rem;
+      color: #444;
+      line-height: 1.5;
+    }
+    
+    .publication-item p {
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #444;
+      margin-bottom: 0.3rem;
+    }
+    
+    .publication-item .authors {
+      font-style: italic;
+      color: #666;
+    }
+    
+    .publication-item .journal {
+      font-weight: bold;
+    }
+    
+    /* Print styles */
+    @media print {
+      body {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+    }
+    
+    /* Responsive design */
+    @media screen and (max-width: 768px) {
+      body {
+        flex-direction: column;
+      }
+      
+      .left-column, .right-column {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Left column -->
+  <div class="left-column">
+    <div class="profile-image">
+      <img src="https://marvelousrachel.github.io/FOMEKONG-FOMEKONG-RACHEL-MERVEILLE-CV/profile1.jpg" alt="Fomekong Fomekong Rachel Merveille" width="150" height="150">
+    </div>
+    
+    <div class="about-me">
+      <h2 class="section-title">About Me</h2>
+      <p>PhD Student with interdisciplinary expertise in mathematics, computational physics, and finance, seeking opportunities to apply mathematical models to solve real-world problems in a research environment.</p>
+    </div>
+    
+    <div class="contact-info">
+      <h2 class="section-title">Contact Information</h2>
+      <p><span>📞</span> +86 131 4976 8997</p>
+      <p><span>📧</span> marvelous@stu.gdou.edu.cn</p>
+      <p><span>🏠</span> Huguangyan Campus, Guangdong Ocean University, Zhanjiang, China</p>
+    </div>
+    
+    <div class="skills">
+      <h2 class="section-title">Technical Skills</h2>
+      <ul class="skills-list">
+        <li>Mathematical Modeling</li>
+        <li>Numerical Analysis</li>
+        <li>Stochastic Processes</li>
+        <li>Python (NumPy, SciPy, Matplotlib)</li>
+        <li>MATLAB</li>
+        <li>LaTeX</li>
+        <li>Data Analysis</li>
+        <li>Machine Learning</li>
+      </ul>
+    </div>
+    
+    <div class="languages">
+      <h2 class="section-title">Languages</h2>
+      <ul class="languages-list">
+        <li>
+          <span>English</span>
+          <div class="progress-bar">
+            <div class="progress" style="width: 95%;"></div>
+          </div>
+        </li>
+        <li>
+          <span>Chinese</span>
+          <div class="progress-bar">
+            <div class="progress" style="width: 75%;"></div>
+          </div>
+        </li>
+        <li>
+          <span>French</span>
+          <div class="progress-bar">
+            <div class="progress" style="width: 100%;"></div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    
+    <div class="links">
+      <h2 class="section-title">Links</h2>
+      <a href="mailto:marvelous@stu.gdou.edu.cn" class="email">marvelous@stu.gdou.edu.cn</a>
+      <a href="https://marvelousrachel.github.io/FOMEKONG-FOMEKONG-RACHEL-MERVEILLE-CV/#skills" target="_blank" class="website">Portfolio Website (Skills Section)</a>
+      <a href="https://github.com/MarvelousGrace" target="_blank" class="github">GitHub (MarvelousGrace)</a>
+      <a href="https://github.com/MarvelousRachel" target="_blank" class="github">GitHub Profile (MarvelousRachel)</a>
+    </div>
+    
+    <div class="references">
+      <h2 class="section-title">References</h2>
+      <div class="reference">
+        <p><strong>Prof. Baozhu Jia</strong></p>
+        <p>Guangdong Ocean University</p>
+        <p>E: jiabzh@gdou.edu.cn</p>
+        <p>ORCID: <a href="https://orcid.org/0000-0001-9928-5242" style="color: #fff;">0000-0001-9928-5242</a></p>
+      </div>
+      <div class="reference">
+        <p><strong>Dr. Zhizun Xu</strong></p>
+        <p>Guangdong Ocean University</p>
+        <p>E: zhizun@gdou.edu.cn</p>
+        <p>ORCID: <a href="https://orcid.org/0000-0002-5918-3425" style="color: #fff;">0000-0002-5918-3425</a></p>
+      </div>
+      <div class="reference">
+        <p><strong>Sr. Hugejile</strong></p>
+        <p>School of Science, Huzhou University</p>
+        <p>ORCID: <a href="https://orcid.org/0009-0007-2659-3982" style="color: #fff;">0009-0007-2659-3982</a></p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Right column -->
+  <div class="right-column">
+    <div class="header">
+      <h1 class="name">Rachel Merveille</h1>
+      <p class="title">PhD Student in Mathematics</p>
+    </div>
+    
+    <div class="section">
+      <h2>Education</h2>
+      <div class="education-item">
+        <h3>PhD in Applied Mathematics <span class="institution">| Guangdong Ocean University, China</span></h3>
+        <p class="period">September 2023 - Present</p>
+        <p>Research focus: Stochastic differential equations and their applications in financial mathematics</p>
+        <p>Advisor: Prof. Baozhu Jia</p>
+      </div>
+      
+      <div class="education-item">
+        <h3>MSc in Applied Mathematics <span class="institution">| Guangdong Ocean University, China</span></h3>
+        <p class="period">September 2020 - June 2023</p>
+        <p>Thesis: "Novel Numerical Methods for Stochastic Differential Equations with Applications in Finance"</p>
+        <p>GPA: 3.9/4.0</p>
+      </div>
+      
+      <div class="education-item">
+        <h3>BSc in Mathematics <span class="institution">| University of Yaoundé I, Cameroon</span></h3>
+        <p class="period">September 2016 - July 2020</p>
+        <p>Specialized in Analysis and Probability Theory</p>
+        <p>GPA: 3.8/4.0</p>
+      </div>
+    </div>
+    
+    <div class="section">
+      <h2>Research Experience</h2>
+      <div class="experience-item">
+        <h3>Research Assistant <span class="company">| Guangdong Ocean University</span></h3>
+        <p class="period">June 2021 - Present</p>
+        <ul>
+          <li>Developed novel numerical schemes for stochastic differential equations with non-globally Lipschitz continuous coefficients</li>
+          <li>Implemented computational algorithms for simulating financial derivatives using Monte Carlo methods</li>
+          <li>Analyzed convergence and stability properties of numerical methods for SDEs</li>
+          <li>Collaborated with researchers from Huzhou University on interdisciplinary projects</li>
+        </ul>
+      </div>
+      
+      <div class="experience-item">
+        <h3>Summer Intern <span class="company">| Huzhou University, Department of Mathematics</span></h3>
+        <p class="period">July 2022 - August 2022</p>
+        <ul>
+          <li>Participated in research project on mathematical modeling of financial markets</li>
+          <li>Developed numerical simulations for option pricing models</li>
+          <li>Presented research findings at department seminar</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="section">
+      <h2>Publications</h2>
+      <div class="publication-item">
+        <p class="title">"Convergence of tamed Euler schemes for stochastic differential equations with Hölder continuous drift"</p>
+        <p class="authors">Fomekong, R. M., Jia, B., & Xu, Z.</p>
+        <p class="journal">Journal of Computational and Applied Mathematics, 2023</p>
+      </div>
+      
+      <div class="publication-item">
+        <p class="title">"Strong approximation of stochastic differential equations with piecewise continuous arguments"</p>
+        <p class="authors">Jia, B., Fomekong, R. M., & Hugejile</p>
+        <p class="journal">Applied Mathematics and Computation, 2022</p>
+      </div>
+      
+      <div class="publication-item">
+        <p class="title">"Numerical analysis of stochastic delay differential equations with non-globally Lipschitz coefficients"</p>
+        <p class="authors">Fomekong, R. M., & Jia, B.</p>
+        <p class="journal">Mathematics and Computers in Simulation, 2021</p>
+      </div>
+    </div>
+    
+    <div class="section">
+      <h2>Conference Presentations</h2>
+      <div class="experience-item">
+        <h3>International Conference on Computational Mathematics <span class="company">| Shanghai, China</span></h3>
+        <p class="period">November 2022</p>
+        <p>Presented paper: "Efficient Numerical Methods for SDEs with Applications in Financial Mathematics"</p>
+      </div>
+      
+      <div class="experience-item">
+        <h3>Workshop on Stochastic Analysis and Applications <span class="company">| Beijing, China</span></h3>
+        <p class="period">May 2022</p>
+        <p>Poster presentation: "Convergence Analysis of Numerical Methods for SDEs with Non-globally Lipschitz Drift"</p>
+      </div>
+    </div>
+    
+    <div class="section">
+      <h2>Awards and Honors</h2>
+      <div class="experience-item">
+        <h3>Outstanding Graduate Student Award</h3>
+        <p class="period">2023</p>
+        <p>Awarded by Guangdong Ocean University for exceptional academic performance and research contributions</p>
+      </div>
+      
+      <div class="experience-item">
+        <h3>Chinese Government Scholarship</h3>
+        <p class="period">2020-2023</p>
+        <p>Full scholarship covering tuition, accommodation, and living expenses for Master's study in China</p>
+      </div>
+      
+      <div class="experience-item">
+        <h3>Best Thesis Award</h3>
+        <p class="period">2020</p>
+        <p>Awarded for undergraduate thesis at University of Yaoundé I</p>
+      </div>
+    </div>
+    
+    <div class="section">
+      <h2>Professional Memberships</h2>
+      <div class="experience-item">
+        <h3>Member, Chinese Mathematical Society</h3>
+        <p class="period">2021 - Present</p>
+      </div>
+      
+      <div class="experience-item">
+        <h3>Member, International Association for Computational Mathematics</h3>
+        <p class="period">2022 - Present</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
