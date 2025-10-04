@@ -381,6 +381,11 @@
       }
     };
     
+    // Load external CV download script
+    const script = document.createElement('script');
+    script.src = 'cv-download.js';
+    document.head.appendChild(script);
+    
     // Intercept print command to ensure image is loaded
     window.addEventListener('beforeprint', function(event) {
       const profileImage = document.querySelector('.profile-image img');
