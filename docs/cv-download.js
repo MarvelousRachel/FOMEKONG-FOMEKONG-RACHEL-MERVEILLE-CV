@@ -10,35 +10,15 @@
  * - Modern UI with hover effects
  */
 
+// Function to get the clean export version URL
+function getExportVersionUrl() {
+  return window.location.href.replace('Rachel_Merveille_CV.html', 'Rachel_Merveille_CV_export.html');
+}
+
 // Utility function to prepare document for export (hide all UI elements)
 function prepareForExport() {
-  // Add a class to the body for export-specific CSS
-  document.body.classList.add('exporting');
-  
-  // Hide download options
-  const downloadOptions = document.querySelector('.download-options');
-  if (downloadOptions) {
-    downloadOptions.setAttribute('aria-hidden', 'true');
-    downloadOptions.style.display = 'none';
-  }
-  
-  // Hide any other navigation or UI elements
-  const navElements = document.querySelectorAll('nav, .nav, .nav-container, .navigation, header, footer');
-  navElements.forEach(el => {
-    if (el) {
-      el.setAttribute('data-original-display', el.style.display || 'block');
-      el.style.display = 'none';
-    }
-  });
-  
-  // Hide any buttons, links or interactive elements that won't work in PDF/image
-  const interactiveElements = document.querySelectorAll('.download-button, .btn, button:not(.print-only)');
-  interactiveElements.forEach(el => {
-    if (el && !el.classList.contains('print-safe')) {
-      el.setAttribute('data-original-display', el.style.display || 'inline-block');
-      el.style.display = 'none';
-    }
-  });
+  // We'll use a completely different approach - we'll load the export version in an iframe
+  console.log('Using export version for PDF/image generation');
 }
 
 // Utility function to restore document after export
@@ -251,108 +231,124 @@ function downloadAsPDF() {
   loadingOverlay.appendChild(message);
   document.body.appendChild(loadingOverlay);
   
-  // Hide UI elements for PDF capture
-  prepareForExport();
+  // Create an invisible iframe with the export version
+  const exportFrame = document.createElement('iframe');
+  exportFrame.style.position = 'absolute';
+  exportFrame.style.left = '-9999px';
+  exportFrame.style.width = '1200px'; 
+  exportFrame.style.height = '2000px';
+  exportFrame.src = getExportVersionUrl();
+  document.body.appendChild(exportFrame);
   
-  // Apply print-specific styling for better PDF output
-  const printStyle = document.createElement('style');
-  printStyle.id = 'print-pdf-style';
-  printStyle.textContent = `
-    body {
-      -webkit-print-color-adjust: exact !important;
-      print-color-adjust: exact !important;
-      color-adjust: exact !important;
-      background-color: white !important;
-    }
-    
-    @page {
-      margin: 0;
-      size: A4;
-    }
-  `;
-  document.head.appendChild(printStyle);
-  
-  // Capture the whole document with improved settings
-  setTimeout(function() {
-    html2canvas(document.body, {
-      scale: 3, // Higher resolution for better quality
-      useCORS: true,
-      allowTaint: true,
-      backgroundColor: '#ffffff',
-      scrollY: -window.scrollY,
-      windowHeight: document.documentElement.offsetHeight,
-      logging: false,
-      onclone: function(clonedDoc) {
-        // Additional styling for the cloned document if needed
-        const elements = clonedDoc.querySelectorAll('*');
-        elements.forEach(el => {
-          // Ensure all text is visible in the PDF
-          if (window.getComputedStyle(el).color === 'transparent') {
-            el.style.color = '#000000';
+  // Wait for iframe to load before capturing
+  exportFrame.onload = function() {
+    // Give some time for the iframe content to fully render
+    setTimeout(function() {
+      try {
+        // Access the iframe document
+        const iframeDoc = exportFrame.contentDocument || exportFrame.contentWindow.document;
+        
+        // Make sure the exporting class is added
+        if (iframeDoc.body) {
+          iframeDoc.body.classList.add('exporting');
+        }
+        
+        // Capture the iframe content
+        html2canvas(iframeDoc.body, {
+          scale: 3, // Higher resolution for better quality
+          useCORS: true,
+          allowTaint: true,
+          backgroundColor: '#ffffff',
+          scrollY: 0,
+          windowHeight: iframeDoc.documentElement.offsetHeight,
+          logging: false,
+          onclone: function(clonedDoc) {
+            // Ensure all UI elements are hidden in the clone
+            const elements = clonedDoc.querySelectorAll('.download-options, .download-button, [role="button"], button, .btn, .nav, nav, header');
+            elements.forEach(el => {
+              el.style.display = 'none';
+              el.style.visibility = 'hidden';
+              el.style.opacity = '0';
+            });
           }
-          // Fix any potential overflow issues
-          if (window.getComputedStyle(el).overflow === 'hidden') {
-            el.style.overflow = 'visible';
+        }).then(function(canvas) {
+          const imgData = canvas.toDataURL('image/jpeg', 1.0);
+          
+          // Determine page size based on content
+          const imgWidth = 210; // A4 width in mm (standard paper size)
+          const pageHeight = 297; // A4 height in mm
+          const imgHeight = canvas.height * imgWidth / canvas.width;
+          
+          // Create PDF with proper orientation and metadata
+          const pdf = new jspdf.jsPDF({
+            orientation: 'portrait',
+            unit: 'mm',
+            format: 'a4',
+            putOnlyUsedFonts: true,
+            compress: true
+          });
+          
+          // Add document metadata
+          pdf.setProperties({
+            title: 'Rachel Merveille CV',
+            subject: 'Curriculum Vitae',
+            author: 'Rachel Merveille',
+            keywords: 'CV, resume, curriculum vitae',
+            creator: 'CV Download Tool'
+          });
+          
+          // Handle multi-page if content exceeds one page
+          let heightLeft = imgHeight;
+          let position = 0;
+          let pageNumber = 1;
+          
+          // Add first page
+          pdf.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight);
+          heightLeft -= pageHeight;
+          
+          // Add additional pages if needed
+          while (heightLeft > 0) {
+            position = -pageHeight * pageNumber;
+            pdf.addPage();
+            pdf.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight);
+            heightLeft -= pageHeight;
+            pageNumber++;
           }
+          
+          // Download the PDF with proper filename
+          pdf.save('Rachel_Merveille_CV.pdf');
+          
+          // Clean up
+          document.body.removeChild(exportFrame);
+          document.body.removeChild(loadingOverlay);
+          
+          // Show success message
+          const notification = document.createElement('div');
+          notification.style.position = 'fixed';
+          notification.style.bottom = '20px';
+          notification.style.right = '20px';
+          notification.style.backgroundColor = '#64ffda';
+          notification.style.color = '#212529';
+          notification.style.padding = '15px';
+          notification.style.borderRadius = '5px';
+          notification.style.boxShadow = '0 2px 10px rgba(0,0,0,0.2)';
+          notification.style.zIndex = '10000';
+          notification.textContent = 'PDF successfully generated';
+          document.body.appendChild(notification);
+          
+          // Remove notification after 3 seconds
+          setTimeout(function() {
+            document.body.removeChild(notification);
+          }, 3000);
         });
+      } catch (error) {
+        console.error('Error generating PDF:', error);
+        document.body.removeChild(loadingOverlay);
+        document.body.removeChild(exportFrame);
+        alert('Error generating PDF. Please try again.');
       }
-    }).then(function(canvas) {
-      const imgData = canvas.toDataURL('image/jpeg', 1.0);
-      
-      // Determine page size based on content
-      const imgWidth = 210; // A4 width in mm (standard paper size)
-      const pageHeight = 297; // A4 height in mm
-      const imgHeight = canvas.height * imgWidth / canvas.width;
-      
-      // Create PDF with proper orientation and metadata
-      const pdf = new jspdf.jsPDF({
-        orientation: 'portrait',
-        unit: 'mm',
-        format: 'a4',
-        putOnlyUsedFonts: true,
-        compress: true
-      });
-      
-      // Add document metadata
-      pdf.setProperties({
-        title: 'Rachel Merveille CV',
-        subject: 'Curriculum Vitae',
-        author: 'Rachel Merveille',
-        keywords: 'CV, resume, curriculum vitae',
-        creator: 'CV Download Tool'
-      });
-      
-      // Handle multi-page if content exceeds one page
-      let heightLeft = imgHeight;
-      let position = 0;
-      let pageNumber = 1;
-      
-      // Add first page
-      pdf.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight);
-      heightLeft -= pageHeight;
-      
-      // Add additional pages if needed
-      while (heightLeft > 0) {
-        position = -pageHeight * pageNumber;
-        pdf.addPage();
-        pdf.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight);
-        heightLeft -= pageHeight;
-        pageNumber++;
-      }
-      
-      // Download the PDF with proper filename
-      pdf.save('Rachel_Merveille_CV.pdf');
-      
-      // Restore UI elements
-      restoreAfterExport();
-      
-      // Remove loading overlay
-      document.body.removeChild(loadingOverlay);
-      
-      // Remove temporary print style
-      document.head.removeChild(printStyle);
-    });
-  }, 1000); // Wait a bit for everything to render properly
+    }, 2000); // Give time for iframe content to render
+  };
 }
 
 // Generate and download PNG image of CV
@@ -374,92 +370,94 @@ function downloadAsImage() {
   loadingOverlay.appendChild(message);
   document.body.appendChild(loadingOverlay);
   
-  // Hide UI elements for capture
-  prepareForExport();
+  // Create an invisible iframe with the export version
+  const exportFrame = document.createElement('iframe');
+  exportFrame.style.position = 'absolute';
+  exportFrame.style.left = '-9999px';
+  exportFrame.style.width = '1200px';
+  exportFrame.style.height = '2000px';
+  exportFrame.src = getExportVersionUrl();
+  document.body.appendChild(exportFrame);
   
-  // Apply print-specific styling for better image output
-  const imageStyle = document.createElement('style');
-  imageStyle.id = 'image-capture-style';
-  imageStyle.textContent = `
-    body {
-      -webkit-print-color-adjust: exact !important;
-      print-color-adjust: exact !important;
-      color-adjust: exact !important;
-      background-color: white !important;
-    }
-  `;
-  document.head.appendChild(imageStyle);
-  
-  // Capture the whole document with improved settings
-  setTimeout(function() {
-    html2canvas(document.body, {
-      scale: 3, // Higher resolution for better quality
-      useCORS: true,
-      allowTaint: true,
-      backgroundColor: '#ffffff',
-      scrollY: -window.scrollY,
-      windowHeight: document.documentElement.offsetHeight,
-      logging: false,
-      onclone: function(clonedDoc) {
-        // Additional styling for the cloned document if needed
-        const elements = clonedDoc.querySelectorAll('*');
-        elements.forEach(el => {
-          // Ensure all text is visible in the image
-          if (window.getComputedStyle(el).color === 'transparent') {
-            el.style.color = '#000000';
+  // Wait for iframe to load before capturing
+  exportFrame.onload = function() {
+    // Give some time for the iframe content to fully render
+    setTimeout(function() {
+      try {
+        // Access the iframe document
+        const iframeDoc = exportFrame.contentDocument || exportFrame.contentWindow.document;
+        
+        // Make sure the exporting class is added
+        if (iframeDoc.body) {
+          iframeDoc.body.classList.add('exporting');
+        }
+        
+        // Capture the iframe content
+        html2canvas(iframeDoc.body, {
+          scale: 3, // Higher resolution for better quality
+          useCORS: true,
+          allowTaint: true,
+          backgroundColor: '#ffffff',
+          scrollY: 0,
+          windowHeight: iframeDoc.documentElement.offsetHeight,
+          logging: false,
+          onclone: function(clonedDoc) {
+            // Ensure all UI elements are hidden in the clone
+            const elements = clonedDoc.querySelectorAll('.download-options, .download-button, [role="button"], button, .btn, .nav, nav, header');
+            elements.forEach(el => {
+              el.style.display = 'none';
+              el.style.visibility = 'hidden';
+              el.style.opacity = '0';
+            });
           }
-          // Fix any potential overflow issues
-          if (window.getComputedStyle(el).overflow === 'hidden') {
-            el.style.overflow = 'visible';
-          }
+        }).then(function(canvas) {
+          // Optimize canvas for high-quality PNG
+          const ctx = canvas.getContext('2d');
+          ctx.imageSmoothingEnabled = true;
+          ctx.imageSmoothingQuality = 'high';
+          
+          // Create download link for the image
+          const link = document.createElement('a');
+          link.download = 'Rachel_Merveille_CV.png';
+          
+          // Use PNG format with highest quality
+          link.href = canvas.toDataURL('image/png', 1.0);
+          link.click();
+          
+          // Clean up
+          document.body.removeChild(exportFrame);
+          document.body.removeChild(loadingOverlay);
+          
+          // Show success notification
+          const notification = document.createElement('div');
+          notification.style.position = 'fixed';
+          notification.style.bottom = '20px';
+          notification.style.right = '20px';
+          notification.style.backgroundColor = '#64ffda';
+          notification.style.color = '#212529';
+          notification.style.padding = '15px';
+          notification.style.borderRadius = '5px';
+          notification.style.boxShadow = '0 2px 10px rgba(0,0,0,0.2)';
+          notification.style.zIndex = '10000';
+          notification.style.opacity = '1';
+          notification.style.transition = 'opacity 0.5s';
+          notification.textContent = 'Image downloaded successfully!';
+          document.body.appendChild(notification);
+          
+          // Remove notification after 3 seconds
+          setTimeout(function() {
+            notification.style.opacity = '0';
+            setTimeout(function() {
+              document.body.removeChild(notification);
+            }, 500);
+          }, 3000);
         });
+      } catch (error) {
+        console.error('Error generating image:', error);
+        document.body.removeChild(loadingOverlay);
+        document.body.removeChild(exportFrame);
+        alert('Error generating image. Please try again.');
       }
-    }).then(function(canvas) {
-      // Optimize canvas for high-quality PNG
-      const ctx = canvas.getContext('2d');
-      ctx.imageSmoothingEnabled = true;
-      ctx.imageSmoothingQuality = 'high';
-      
-      // Create download link for the image
-      const link = document.createElement('a');
-      link.download = 'Rachel_Merveille_CV.png';
-      
-      // Use PNG format with highest quality
-      link.href = canvas.toDataURL('image/png', 1.0);
-      link.click();
-      
-      // Restore UI elements
-      restoreAfterExport();
-      
-      // Remove loading overlay
-      document.body.removeChild(loadingOverlay);
-      
-      // Remove temporary style
-      document.head.removeChild(imageStyle);
-      
-      // Show success notification
-      const notification = document.createElement('div');
-      notification.style.position = 'fixed';
-      notification.style.bottom = '20px';
-      notification.style.right = '20px';
-      notification.style.backgroundColor = '#64ffda';
-      notification.style.color = '#212529';
-      notification.style.padding = '15px';
-      notification.style.borderRadius = '5px';
-      notification.style.boxShadow = '0 2px 10px rgba(0,0,0,0.2)';
-      notification.style.zIndex = '10000';
-      notification.style.opacity = '1';
-      notification.style.transition = 'opacity 0.5s';
-      notification.textContent = 'Image downloaded successfully!';
-      document.body.appendChild(notification);
-      
-      // Remove notification after 3 seconds
-      setTimeout(function() {
-        notification.style.opacity = '0';
-        setTimeout(function() {
-          document.body.removeChild(notification);
-        }, 500);
-      }, 3000);
-    });
-  }, 1000); // Wait a bit for everything to render properly
+    }, 2000); // Give time for iframe content to render
+  };
 }
