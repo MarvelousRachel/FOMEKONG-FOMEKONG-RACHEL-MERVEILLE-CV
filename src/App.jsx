@@ -1,6 +1,5 @@
 import { HashRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import { getAssetPath } from './utils/assetUtils';
-import './App.css';
+import './App.css'
 
 // Simple Navbar component
 const Navbar = () => (
@@ -99,58 +98,784 @@ const Skills = () => (
     padding: '4rem 2rem'
   }}>
     <h1 style={{fontSize: '3rem', color: '#64ffda', marginBottom: '2rem'}}>Technical Skills</h1>
-    
-    <div style={{marginBottom: '3rem'}}>
-      <h2 style={{color: '#ccd6f6', fontSize: '1.8rem', marginBottom: '1.5rem'}}>Programming Languages</h2>
-      <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', gap: '1.5rem'}}>
-        {['Python', 'C++', 'MATLAB', 'ROS/ROS2', 'JavaScript', 'HTML/CSS', 'Node.js'].map(skill => (
-          <div key={skill} style={{
-            backgroundColor: '#112240',
-            padding: '1.5rem',
-            borderRadius: '5px',
-            border: '1px solid #233554'
-          }}>
-            <span style={{fontSize: '1.2rem', color: '#e6f1ff'}}>{skill}</span>
-          </div>
-        ))}
+    <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '2rem'}}>
+      
+      <div style={{backgroundColor: '#112240', padding: '2rem', borderRadius: '10px'}}>
+        <h3 style={{color: '#64ffda', marginBottom: '1rem'}}>Deep Learning & Machine Learning</h3>
+        <ul style={{color: '#a8b2d1', lineHeight: '1.6', fontSize: '0.9rem'}}>
+          <li>PyTorch, CNNs, GANs, RNNs, LSTMs</li>
+          <li>Reinforcement Learning</li>
+          <li>Model Development (Linear Regression, Classification)</li>
+          <li>Computer Vision & Object Recognition</li>
+          <li>Multi-class Classification</li>
+        </ul>
       </div>
-    </div>
-    
-    <div style={{marginBottom: '3rem'}}>
-      <h2 style={{color: '#ccd6f6', fontSize: '1.8rem', marginBottom: '1.5rem'}}>Robotics & AI</h2>
-      <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', gap: '1.5rem'}}>
-        {['SLAM', 'Computer Vision', 'Sensor Fusion', 'Deep Learning', 'Path Planning', 'Control Systems', 'ROS Navigation'].map(skill => (
-          <div key={skill} style={{
-            backgroundColor: '#112240',
-            padding: '1.5rem',
-            borderRadius: '5px',
-            border: '1px solid #233554'
-          }}>
-            <span style={{fontSize: '1.2rem', color: '#e6f1ff'}}>{skill}</span>
-          </div>
-        ))}
+
+      <div style={{backgroundColor: '#112240', padding: '2rem', borderRadius: '10px'}}>
+        <h3 style={{color: '#64ffda', marginBottom: '1rem'}}>SLAM & Navigation</h3>
+        <ul style={{color: '#a8b2d1', lineHeight: '1.6', fontSize: '0.9rem'}}>
+          <li>ORB-SLAM3, NICE-SLAM, Visual-Lidar SLAM</li>
+          <li>SuperPoint/SuperGlue Integration</li>
+          <li>Custom SLAM Pipeline Development</li>
+          <li>Loop Closure Detection</li>
+          <li>g2o-based Pose Graph Optimization</li>
+        </ul>
       </div>
-    </div>
-    
-    <div style={{marginBottom: '3rem'}}>
-      <h2 style={{color: '#ccd6f6', fontSize: '1.8rem', marginBottom: '1.5rem'}}>Tools & Frameworks</h2>
-      <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', gap: '1.5rem'}}>
-        {['TensorFlow', 'PyTorch', 'OpenCV', 'PCL', 'Git', 'Docker', 'Linux', 'RViz', 'Gazebo'].map(skill => (
-          <div key={skill} style={{
-            backgroundColor: '#112240',
-            padding: '1.5rem',
-            borderRadius: '5px',
-            border: '1px solid #233554'
-          }}>
-            <span style={{fontSize: '1.2rem', color: '#e6f1ff'}}>{skill}</span>
-          </div>
-        ))}
+
+      <div style={{backgroundColor: '#112240', padding: '2rem', borderRadius: '10px'}}>
+        <h3 style={{color: '#64ffda', marginBottom: '1rem'}}>ROS/ROS2 Ecosystem</h3>
+        <ul style={{color: '#a8b2d1', lineHeight: '1.6', fontSize: '0.9rem'}}>
+          <li>RViz, RViz2, Gazebo, ros2_control CLI</li>
+          <li>ROS2 Publishers, Subscribers, Parameters</li>
+          <li>URDF Modeling & Visualization</li>
+          <li>Robot Simulation & Control</li>
+          <li>Package Management & Inter-process Messaging</li>
+        </ul>
+      </div>
+
+      <div style={{backgroundColor: '#112240', padding: '2rem', borderRadius: '10px'}}>
+        <h3 style={{color: '#64ffda', marginBottom: '1rem'}}>Sensor Fusion & Integration</h3>
+        <ul style={{color: '#a8b2d1', lineHeight: '1.6', fontSize: '0.9rem'}}>
+          <li>LiDAR, IMU, Camera, DVL</li>
+          <li>Sonar Integration for Underwater Navigation</li>
+          <li>Visual-Inertial-Depth Sensor Fusion</li>
+          <li>Multi-sensor Fusion with Uncertainty Modeling</li>
+        </ul>
+      </div>
+
+      <div style={{backgroundColor: '#112240', padding: '2rem', borderRadius: '10px'}}>
+        <h3 style={{color: '#64ffda', marginBottom: '1rem'}}>Programming & Development</h3>
+        <ul style={{color: '#a8b2d1', lineHeight: '1.6', fontSize: '0.9rem'}}>
+          <li>Python, C++, MATLAB, Arduino</li>
+          <li>Ubuntu, Colab, VS Code</li>
+          <li>Virtual Machine Configuration</li>
+          <li>System Integration & Development</li>
+        </ul>
+      </div>
+
+      <div style={{backgroundColor: '#112240', padding: '2rem', borderRadius: '10px'}}>
+        <h3 style={{color: '#64ffda', marginBottom: '1rem'}}>3D Processing & Design</h3>
+        <ul style={{color: '#a8b2d1', lineHeight: '1.6', fontSize: '0.9rem'}}>
+          <li>Open3D Point Cloud Processing</li>
+          <li>OpenCV Image Processing</li>
+          <li>SolidWorks, AutoCAD, Fusion 360</li>
+          <li>Voxel Mapping & 3D Reconstruction</li>
+        </ul>
+      </div>
+
+      <div style={{backgroundColor: '#112240', padding: '2rem', borderRadius: '10px'}}>
+        <h3 style={{color: '#64ffda', marginBottom: '1rem'}}>Underwater Robotics</h3>
+        <ul style={{color: '#a8b2d1', lineHeight: '1.6', fontSize: '0.9rem'}}>
+          <li>Water Current Compensation Algorithms</li>
+          <li>Turbidity-adaptive Image Preprocessing</li>
+          <li>Underwater Computer Vision Techniques</li>
+          <li>UUV Operation & Field Testing</li>
+        </ul>
+      </div>
+
+      <div style={{backgroundColor: '#112240', padding: '2rem', borderRadius: '10px'}}>
+        <h3 style={{color: '#64ffda', marginBottom: '1rem'}}>Robotics & Control</h3>
+        <ul style={{color: '#a8b2d1', lineHeight: '1.6', fontSize: '0.9rem'}}>
+          <li>Robot Kinematics & Motion Control</li>
+          <li>Differential Drive Control</li>
+          <li>Velocity & Speed Controllers</li>
+          <li>Hardware Abstraction & Device Control</li>
+        </ul>
       </div>
     </div>
   </div>
 );
 
-// Simple Contact component 
+// Professional CV component
+const CV = () => {
+  const downloadCV = () => {
+    window.print();
+  };
+
+  return (
+    <div style={{
+      maxWidth: '1200px',
+      margin: '0 auto',
+      padding: '2rem'
+    }}>
+      {/* Download Button */}
+      <div style={{textAlign: 'center', marginBottom: '2rem', '@media print': {display: 'none'}}}>
+        <button 
+          onClick={downloadCV}
+          style={{
+            backgroundColor: '#64ffda',
+            color: '#0a192f',
+            border: 'none',
+            padding: '1rem 2rem',
+            borderRadius: '5px',
+            fontSize: '1.1rem',
+            fontWeight: 'bold',
+            cursor: 'pointer',
+            marginBottom: '2rem'
+          }}
+        >
+          Download CV as PDF
+        </button>
+      </div>
+
+      {/* CV Content */}
+      <div style={{
+        backgroundColor: 'white',
+        color: '#333',
+        minHeight: '100vh',
+        display: 'flex',
+        fontFamily: 'Arial, sans-serif'
+      }}>
+        {/* Left Sidebar */}
+        <div style={{
+          width: '300px',
+          backgroundColor: '#4a4a4a',
+          color: 'white',
+          padding: '2rem',
+          display: 'flex',
+          flexDirection: 'column'
+        }}>
+          {/* Profile Image */}
+          <div style={{
+            width: '150px',
+            height: '150px',
+            borderRadius: '50%',
+            margin: '0 auto 2rem',
+            overflow: 'hidden',
+            border: '3px solid #64ffda'
+          }}>
+            <img 
+              src="./profile1.jpg"
+              alt="Fomekong Fomekong Rachel Merveille" 
+              onError={(e) => {
+                e.target.style.display = 'none';
+                e.target.nextSibling.style.display = 'flex';
+              }}
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover'
+              }}
+            />
+            <div style={{
+              width: '100%',
+              height: '100%',
+              backgroundColor: '#64ffda',
+              display: 'none',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: '3rem',
+              fontWeight: 'bold',
+              color: '#0a192f'
+            }}>
+              RF
+            </div>
+          </div>
+
+          {/* About Me */}
+          <div style={{marginBottom: '2rem'}}>
+            <h3 style={{
+              fontSize: '1.2rem',
+              marginBottom: '1rem',
+              borderBottom: '2px solid #64ffda',
+              paddingBottom: '0.5rem'
+            }}>
+              PROFESSIONAL SUMMARY
+            </h3>
+            <p style={{fontSize: '0.9rem', lineHeight: '1.4'}}>
+              Competent and self-driven researcher with a focus on robotics, sensor fusion, SLAM, and robot control systems. 
+              Extensive background in the development of both terrestrial and underwater robots, with practical knowledge of 
+              kinematics, motor control, navigation, and localization methods like ORB-SLAM3 and vSLAM. Competent in ROS/ROS2, 
+              C++, and Python, with a solid academic background in sensor integration and deep learning. Enthusiastic about 
+              using state-of-the-art technologies to improve navigation and robotic systems in challenging environments. 
+              Working toward a PhD with the goal of improving robotic autonomy through multi-sensor fusion and underwater navigation.
+            </p>
+          </div>
+
+          {/* Links */}
+          <div style={{marginBottom: '2rem'}}>
+            <h3 style={{
+              fontSize: '1.2rem',
+              marginBottom: '1rem',
+              borderBottom: '2px solid #64ffda',
+              paddingBottom: '0.5rem'
+            }}>
+              CONTACT
+            </h3>
+            <p style={{fontSize: '0.9rem', marginBottom: '0.5rem'}}>
+              <strong>Email:</strong><br/>
+              marvelous@stu.gdou.edu.cn
+            </p>
+            <p style={{fontSize: '0.9rem', marginBottom: '0.5rem'}}>
+              <strong>Phone:</strong><br/>
+              (+86) 166-6225-8487
+            </p>
+            <p style={{fontSize: '0.9rem'}}>
+              <strong>Address:</strong><br/>
+              Zhanjiang, Guangdong Province<br/>
+              524091, China
+            </p>
+          </div>
+
+          {/* References */}
+          <div style={{marginBottom: '2rem'}}>
+            <h3 style={{
+              fontSize: '1.2rem',
+              marginBottom: '1rem',
+              borderBottom: '2px solid #64ffda',
+              paddingBottom: '0.5rem'
+            }}>
+              REFERENCES
+            </h3>
+            <div style={{marginBottom: '1rem'}}>
+              <h4 style={{fontSize: '1rem', color: '#64ffda'}}>DR. SUPERVISOR</h4>
+              <p style={{fontSize: '0.8rem', margin: '0'}}>Guangdong Ocean University</p>
+              <p style={{fontSize: '0.8rem', margin: '0'}}>Available upon request</p>
+            </div>
+          </div>
+
+          {/* Skills */}
+          <div>
+            <h3 style={{
+              fontSize: '1.2rem',
+              marginBottom: '1rem',
+              borderBottom: '2px solid #64ffda',
+              paddingBottom: '0.5rem'
+            }}>
+              CORE SKILLS
+            </h3>
+            <div style={{fontSize: '0.8rem', lineHeight: '1.5'}}>
+              <p style={{marginBottom: '0.5rem'}}><strong>SLAM:</strong> ORB-SLAM3, NICE-SLAM, Visual-Lidar SLAM, SuperPoint/SuperGlue</p>
+              <p style={{marginBottom: '0.5rem'}}><strong>Deep Learning:</strong> PyTorch, CNNs, GANs, RNNs, LSTMs, Reinforcement Learning</p>
+              <p style={{marginBottom: '0.5rem'}}><strong>ROS/ROS2:</strong> RViz, Gazebo, ros2_control, URDF, Publishers/Subscribers</p>
+              <p style={{marginBottom: '0.5rem'}}><strong>Sensor Fusion:</strong> LiDAR, IMU, Camera, DVL, Sonar Integration</p>
+              <p style={{marginBottom: '0.5rem'}}><strong>Programming:</strong> Python, C++, MATLAB, Arduino, Ubuntu</p>
+              <p style={{marginBottom: '0.5rem'}}><strong>3D Processing:</strong> Open3D, OpenCV, Point Cloud Processing</p>
+              <p style={{marginBottom: '0.5rem'}}><strong>Design:</strong> SolidWorks, AutoCAD, Fusion 360</p>
+              <p><strong>Underwater:</strong> UUV Operation, Water Current Compensation, Turbidity Processing</p>
+            </div>
+          </div>
+
+          {/* Awards */}
+          <div>
+            <h3 style={{
+              fontSize: '1.2rem',
+              marginBottom: '1rem',
+              borderBottom: '2px solid #64ffda',
+              paddingBottom: '0.5rem'
+            }}>
+              HONORS & AWARDS
+            </h3>
+            <div style={{fontSize: '0.8rem', lineHeight: '1.5'}}>
+              <p style={{marginBottom: '0.5rem'}}>• Guangdong Provincial Scholarship (2022, 2023)</p>
+              <p style={{marginBottom: '0.5rem'}}>• Zhejiang Provincial Scholarship for Excellent International Students (2021)</p>
+              <p style={{marginBottom: '0.5rem'}}>• Graduate Merit Scholar, Huzhou University (2021)</p>
+              <p style={{marginBottom: '0.5rem'}}>• HSK 3 Chinese Language Proficiency Certificate (2021)</p>
+              <p>• AIESEC Cameroon Award (2017)</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Right Content */}
+        <div style={{flex: 1, padding: '2rem'}}>
+          {/* Header */}
+          <div style={{marginBottom: '2rem'}}>
+            <h1 style={{
+              fontSize: '3rem',
+              fontWeight: 'bold',
+              margin: '0',
+              color: '#333',
+              letterSpacing: '2px'
+            }}>
+              FOMEKONG<br/>
+              FOMEKONG
+            </h1>
+            <h2 style={{
+              fontSize: '1.2rem',
+              color: '#666',
+              margin: '0.5rem 0 2rem',
+              letterSpacing: '1px'
+            }}>
+              PHD CANDIDATE
+            </h2>
+            <div style={{display: 'flex', alignItems: 'center', gap: '2rem', fontSize: '0.9rem', color: '#666', flexWrap: 'wrap'}}>
+              <span>📍 Zhanjiang, Guangdong Province, 524091, China</span>
+              <span>📞 (+86) 166-6225-8487</span>
+              <span>✉️ marvelous@stu.gdou.edu.cn</span>
+            </div>
+          </div>
+
+          {/* Work Experience */}
+          <div style={{marginBottom: '3rem'}}>
+            <h2 style={{
+              fontSize: '1.5rem',
+              color: '#333',
+              borderBottom: '3px solid #333',
+              paddingBottom: '0.5rem',
+              marginBottom: '1.5rem'
+            }}>
+              EXPERIENCE
+            </h2>
+            
+            <div style={{marginBottom: '2rem'}}>
+              <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem'}}>
+                <h3 style={{fontSize: '1.2rem', color: '#333', margin: '0'}}>UNDERWATER ROBOTICS RESEARCHER</h3>
+                <span style={{fontSize: '0.9rem', color: '#666'}}>🏛️ Key Laboratory of Underwater Robotics</span>
+              </div>
+              <p style={{fontSize: '0.9rem', color: '#666', margin: '0 0 0.5rem'}}>
+                Guangdong Ocean University • 2022 - Present
+              </p>
+              <ul style={{fontSize: '0.9rem', lineHeight: '1.5', paddingLeft: '1.5rem'}}>
+                <li>Engaged in various research projects focused on the operation of unmanned underwater vehicles (UUVs) for navigation, mapping, and environmental perception</li>
+                <li>Conducted field testing and operation of UUVs in lab pool environments</li>
+                <li>Contributed to the development and optimization of underwater navigation systems, integrating sensor data from IMUs, cameras for improved SLAM accuracy</li>
+                <li>Assisted in the design and implementation of deep learning models to enhance feature extraction and data fusion for more reliable navigation</li>
+                <li>Engaged in simultaneous localization and mapping research including SuperPoint, SuperGlue, CNN (encoder, decoder), pose optimization methods such as g2o</li>
+                <li>Assistant teacher to Master students in Simultaneous Localization and Mapping</li>
+                <li>Assistant teacher for English corner to undergraduates at Marine College of Guangdong Ocean University</li>
+              </ul>
+            </div>
+
+            <div style={{marginBottom: '2rem'}}>
+              <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem'}}>
+                <h3 style={{fontSize: '1.2rem', color: '#333', margin: '0'}}>GRADUATE RESEARCH STUDENT</h3>
+                <span style={{fontSize: '0.9rem', color: '#666'}}>🏛️ Huzhou University</span>
+              </div>
+              <p style={{fontSize: '0.9rem', color: '#666', margin: '0 0 0.5rem'}}>
+                Huzhou, Zhejiang, China • Aug 2019 - 2022
+              </p>
+              <ul style={{fontSize: '0.9rem', lineHeight: '1.5', paddingLeft: '1.5rem'}}>
+                <li>Contributed to research projects in the Key Laboratory of Electronics, focusing on drone assembly and 3D printing technologies</li>
+                <li>Participated in practical projects at Gaoyuangjin Machinery Technology Co., Ltd, gaining hands-on experience in mold part production and plastic product manufacturing</li>
+                <li>Successfully completed graduation project titled "Robotized Solution for Selecting, Closing, and Packaging Products in Injection Molding Machines"</li>
+                <li>Assisted in automation projects related to conveyor roller construction and machine building at Sanhe Automation Equipment Co., Ltd</li>
+                <li>Published research on Industry 4.0's impact on robotics in North American Academic Research Journal</li>
+              </ul>
+            </div>
+
+            <div style={{marginBottom: '2rem'}}>
+              <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem'}}>
+                <h3 style={{fontSize: '1.2rem', color: '#333', margin: '0'}}>UNDERGRADUATE STUDENT</h3>
+                <span style={{fontSize: '0.9rem', color: '#666'}}>🏛️ University of Yaoundé 1</span>
+              </div>
+              <p style={{fontSize: '0.9rem', color: '#666', margin: '0 0 0.5rem'}}>
+                Yaoundé, Cameroon • Aug 2018 - Sep 2019
+              </p>
+              <ul style={{fontSize: '0.9rem', lineHeight: '1.5', paddingLeft: '1.5rem'}}>
+                <li>Conducted comprehensive review on "Evaluation of the Woschni Model for the Variation of Variable Temperature Walls" in collaboration with doctoral student and professor in Energy Physics</li>
+                <li>Co-designed and managed the I-Tech Educk project platform, connecting parents and teachers for home tutoring services</li>
+                <li>Taught the basics of mechanical physics to final-year students, helping them gain strong understanding of key concepts</li>
+                <li>Managed the platform's social media presence, ensuring effective communication with stakeholders</li>
+              </ul>
+            </div>
+
+            {/* Professional Achievements */}
+            <div style={{marginBottom: '2rem'}}>
+              <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem'}}>
+                <h3 style={{fontSize: '1.2rem', color: '#333', margin: '0'}}>PROFESSIONAL ACHIEVEMENTS</h3>
+                <span style={{fontSize: '0.9rem', color: '#666'}}>🏛️ Underwater Robotics</span>
+              </div>
+              <p style={{fontSize: '0.9rem', color: '#666', margin: '0 0 0.5rem'}}>
+                Guangdong Ocean University • Sep 2022 - Current
+              </p>
+              <ul style={{fontSize: '0.9rem', lineHeight: '1.5', paddingLeft: '1.5rem'}}>
+                <li>Developed complete underwater SLAM pipeline integrating advanced image preprocessing for turbid environments (CLAHE, saliency masking)</li>
+                <li>Implemented robust feature matching using SuperGlue/SuperPoint networks with adaptive voxel-based mapping using Open3D</li>
+                <li>Created water current compensation algorithms and keyframe selection optimized for underwater conditions</li>
+                <li>Implemented sensor fusion techniques combining visual features with IMU/DVL data and depth sensor integration for 3D reconstruction</li>
+                <li>Developed real-time optimization techniques including g2o-based pose graph optimization and efficient loop closure detection</li>
+                <li>Created comprehensive visualization tools for 3D trajectory and mapping evaluation</li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Education */}
+          <div style={{marginBottom: '3rem'}}>
+            <h2 style={{
+              fontSize: '1.5rem',
+              color: '#333',
+              borderBottom: '3px solid #333',
+              paddingBottom: '0.5rem',
+              marginBottom: '1.5rem'
+            }}>
+              EDUCATION
+            </h2>
+
+            <div style={{marginBottom: '1.5rem'}}>
+              <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem'}}>
+                <h3 style={{fontSize: '1.2rem', color: '#333', margin: '0'}}>GUANGDONG OCEAN UNIVERSITY</h3>
+                <span style={{fontSize: '0.9rem', color: '#666'}}>🎓 PhD in Marine Engineering</span>
+              </div>
+              <p style={{fontSize: '0.9rem', color: '#666', margin: '0 0 0.5rem'}}>
+                Zhanjiang • Expected 2026
+              </p>
+              <ul style={{fontSize: '0.9rem', lineHeight: '1.5', paddingLeft: '1.5rem'}}>
+                <li>Specialization: Underwater Robotics, SLAM, Deep Learning, Sensor Fusion</li>
+                <li>Thesis: Comprehensive Enhancement of Underwater UUV Navigation via Visual-Lidar SLAM: A Multi-Sensor and AI-Integrated Approach</li>
+                <li>GPA: 86.9/100</li>
+                <li>Relevant Coursework: Advanced Robotics, Control Systems, Sensor Fusion, Applied Mathematics for Robotics</li>
+              </ul>
+            </div>
+
+            <div style={{marginBottom: '1.5rem'}}>
+              <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem'}}>
+                <h3 style={{fontSize: '1.2rem', color: '#333', margin: '0'}}>HUZHOU UNIVERSITY</h3>
+                <span style={{fontSize: '0.9rem', color: '#666'}}>🎓 MEng in Control Engineering</span>
+              </div>
+              <p style={{fontSize: '0.9rem', color: '#666', margin: '0 0 0.5rem'}}>
+                Huzhou • Graduated 2022
+              </p>
+              <ul style={{fontSize: '0.9rem', lineHeight: '1.5', paddingLeft: '1.5rem'}}>
+                <li>Thesis: Enhancing Manufacturing Efficiency: A New Robotic Arm Design for Injection Molding with Improved Adaptability and Precision</li>
+                <li>GPA: 80.6/100</li>
+              </ul>
+            </div>
+
+            <div style={{marginBottom: '1.5rem'}}>
+              <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem'}}>
+                <h3 style={{fontSize: '1.2rem', color: '#333', margin: '0'}}>UNIVERSITY OF YAOUNDÉ 1</h3>
+                <span style={{fontSize: '0.9rem', color: '#666'}}>🎓 BSc in Physics</span>
+              </div>
+              <p style={{fontSize: '0.9rem', color: '#666', margin: '0 0 0.5rem'}}>
+                Cameroon • 2015 - 2018
+              </p>
+              <ul style={{fontSize: '0.9rem', lineHeight: '1.5', paddingLeft: '1.5rem'}}>
+                <li>Graduated with honors</li>
+                <li>Strong foundation in mathematical physics</li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Skills */}
+          <div style={{marginBottom: '3rem'}}>
+            <h2 style={{
+              fontSize: '1.5rem',
+              color: '#333',
+              borderBottom: '3px solid #333',
+              paddingBottom: '0.5rem',
+              marginBottom: '1.5rem'
+            }}>
+              SKILLS
+            </h2>
+            
+            <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem'}}>
+              <div>
+                <div style={{marginBottom: '1rem'}}>
+                  <h4 style={{fontSize: '1rem', margin: '0 0 0.5rem', color: '#333'}}>SLAM & ROBOTICS</h4>
+                  <div style={{height: '10px', backgroundColor: '#e0e0e0', borderRadius: '5px'}}>
+                    <div style={{height: '100%', width: '90%', backgroundColor: '#333', borderRadius: '5px'}}></div>
+                  </div>
+                </div>
+                <div style={{marginBottom: '1rem'}}>
+                  <h4 style={{fontSize: '1rem', margin: '0 0 0.5rem', color: '#333'}}>DEEP LEARNING</h4>
+                  <div style={{height: '10px', backgroundColor: '#e0e0e0', borderRadius: '5px'}}>
+                    <div style={{height: '100%', width: '85%', backgroundColor: '#333', borderRadius: '5px'}}></div>
+                  </div>
+                </div>
+                <div style={{marginBottom: '1rem'}}>
+                  <h4 style={{fontSize: '1rem', margin: '0 0 0.5rem', color: '#333'}}>PROGRAMMING</h4>
+                  <div style={{height: '10px', backgroundColor: '#e0e0e0', borderRadius: '5px'}}>
+                    <div style={{height: '100%', width: '80%', backgroundColor: '#333', borderRadius: '5px'}}></div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div style={{marginBottom: '1rem'}}>
+                  <h4 style={{fontSize: '1rem', margin: '0 0 0.5rem', color: '#333'}}>SENSOR FUSION</h4>
+                  <div style={{height: '10px', backgroundColor: '#e0e0e0', borderRadius: '5px'}}>
+                    <div style={{height: '100%', width: '85%', backgroundColor: '#333', borderRadius: '5px'}}></div>
+                  </div>
+                </div>
+                <div style={{marginBottom: '1rem'}}>
+                  <h4 style={{fontSize: '1rem', margin: '0 0 0.5rem', color: '#333'}}>RESEARCH WRITING</h4>
+                  <div style={{height: '10px', backgroundColor: '#e0e0e0', borderRadius: '5px'}}>
+                    <div style={{height: '100%', width: '90%', backgroundColor: '#333', borderRadius: '5px'}}></div>
+                  </div>
+                </div>
+                <div style={{marginBottom: '1rem'}}>
+                  <h4 style={{fontSize: '1rem', margin: '0 0 0.5rem', color: '#333'}}>PUBLIC SPEAKING</h4>
+                  <div style={{height: '10px', backgroundColor: '#e0e0e0', borderRadius: '5px'}}>
+                    <div style={{height: '100%', width: '75%', backgroundColor: '#333', borderRadius: '5px'}}></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Languages */}
+          <div style={{marginBottom: '3rem'}}>
+            <h2 style={{
+              fontSize: '1.5rem',
+              color: '#333',
+              borderBottom: '3px solid #333',
+              paddingBottom: '0.5rem',
+              marginBottom: '1.5rem'
+            }}>
+              LANGUAGES
+            </h2>
+            <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '1rem'}}>
+              <div>
+                <h4 style={{fontSize: '1rem', margin: '0 0 0.5rem', color: '#333'}}>ENGLISH</h4>
+                <p style={{fontSize: '0.9rem', color: '#666'}}>Fluent</p>
+              </div>
+              <div>
+                <h4 style={{fontSize: '1rem', margin: '0 0 0.5rem', color: '#333'}}>FRENCH</h4>
+                <p style={{fontSize: '0.9rem', color: '#666'}}>Fluent</p>
+              </div>
+              <div>
+                <h4 style={{fontSize: '1rem', margin: '0 0 0.5rem', color: '#333'}}>MANDARIN</h4>
+                <p style={{fontSize: '0.9rem', color: '#666'}}>Intermediate (HSK 3)</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Publications */}
+          <div style={{marginBottom: '3rem'}}>
+            <h2 style={{
+              fontSize: '1.5rem',
+              color: '#333',
+              borderBottom: '3px solid #333',
+              paddingBottom: '0.5rem',
+              marginBottom: '1.5rem'
+            }}>
+              PUBLICATIONS
+            </h2>
+            <ul style={{fontSize: '0.9rem', lineHeight: '1.6', paddingLeft: '1.5rem'}}>
+              <li style={{marginBottom: '1rem'}}>
+                <strong>Fomekong, F. F.</strong>, & Hugejile. (2021). "The Influence of Industry 4.0: A Case Study of Injection 
+                Molding Machines, Drones, 3D Printing, and Automation Factories." <em>North American Academic Research</em>, 4(12), 221-238. 
+                DOI: 10.5281/zenodo.5789895
+              </li>
+              <li style={{marginBottom: '1rem'}}>
+                <strong>Fomekong, F. F.</strong>, Jia, B., Xu, Z., & Fred, B. (2024). "Enhancing Underwater SLAM Navigation 
+                and Perception: A Comprehensive Review of Deep Learning Integration." <em>Sensors</em>, 24(21), 7034. 
+                DOI: 10.3390/s24217034
+              </li>
+              <li style={{marginBottom: '1rem'}}>
+                <strong>Fomekong, F. F.</strong>, Jia, B., Xu, Z., & Fred, B. (2024). "Advancements in Sensor Fusion for Underwater SLAM: 
+                A Review on Enhanced Navigation and Environmental Perception." <em>Sensors</em>, 24(23), 7490. 
+                DOI: 10.3390/s24237490
+              </li>
+              <li style={{marginBottom: '1rem'}}>
+                <strong>Fomekong, F. F.</strong>, Hugejile, Fred, B. "Enhancing Manufacturing Efficiency: A New Robotic Arm Design for Injection Molding with Improved Adaptability and Precision." 
+                DOI: 10.21203/rs.3.rs-5524250/v1
+              </li>
+            </ul>
+          </div>
+
+          {/* Patents */}
+          <div style={{marginBottom: '3rem'}}>
+            <h2 style={{
+              fontSize: '1.5rem',
+              color: '#333',
+              borderBottom: '3px solid #333',
+              paddingBottom: '0.5rem',
+              marginBottom: '1.5rem'
+            }}>
+              PATENTS
+            </h2>
+            <ul style={{fontSize: '0.9rem', lineHeight: '1.6', paddingLeft: '1.5rem'}}>
+              <li>
+                <strong>CN202022594125.5</strong> – A Human Non-Contact Temperature Detection Device (Utility Model Patent)
+              </li>
+            </ul>
+          </div>
+
+          {/* Projects */}
+          <div style={{marginBottom: '3rem'}}>
+            <h2 style={{
+              fontSize: '1.5rem',
+              color: '#333',
+              borderBottom: '3px solid #333',
+              paddingBottom: '0.5rem',
+              marginBottom: '1.5rem'
+            }}>
+              PROJECTS
+            </h2>
+            
+            <div style={{marginBottom: '2rem'}}>
+              <h3 style={{fontSize: '1.1rem', color: '#333', marginBottom: '0.5rem'}}>Underwater SLAM System Development</h3>
+              <p style={{fontSize: '0.9rem', lineHeight: '1.5', color: '#555'}}>
+                Developed a complete underwater SLAM system using Python/PyTorch, integrating SuperGlue/SuperPoint 
+                feature matching and voxel mapping for robust underwater navigation.
+              </p>
+            </div>
+            
+            <div style={{marginBottom: '2rem'}}>
+              <h3 style={{fontSize: '1.1rem', color: '#333', marginBottom: '0.5rem'}}>Robust Underwater Visual SLAM System</h3>
+              <p style={{fontSize: '0.9rem', lineHeight: '1.5', color: '#555'}}>
+                Created a visual SLAM system using deep feature matching, OpenCV, Open3D, and pose graph 
+                optimization for high-accuracy mapping in low-visibility underwater environments.
+              </p>
+            </div>
+          </div>
+
+          {/* Accomplishments */}
+          <div>
+            <h2 style={{
+              fontSize: '1.5rem',
+              color: '#333',
+              borderBottom: '3px solid #333',
+              paddingBottom: '0.5rem',
+              marginBottom: '1.5rem'
+            }}>
+              ACCOMPLISHMENTS
+            </h2>
+            <ul style={{fontSize: '0.9rem', lineHeight: '1.6', paddingLeft: '1.5rem'}}>
+              <li style={{marginBottom: '0.5rem'}}>
+                Proficient in deep learning and robotic systems, improving accuracy and system performance
+              </li>
+              <li>
+                Extensive experience in problem-solving, model training, and performance enhancement
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// Professional Gallery component
+const Gallery = () => (
+  <div style={{
+    maxWidth: '1200px',
+    margin: '0 auto',
+    padding: '4rem 2rem'
+  }}>
+    <h1 style={{fontSize: '3rem', color: '#64ffda', marginBottom: '2rem', textAlign: 'center'}}>Professional Gallery</h1>
+    <p style={{fontSize: '1.2rem', color: '#a8b2d1', textAlign: 'center', marginBottom: '3rem'}}>
+      A collection of professional photos showcasing my academic and research journey
+    </p>
+    
+    <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem'}}>
+      {/* Photo 1 */}
+      <div style={{
+        backgroundColor: '#112240',
+        borderRadius: '15px',
+        overflow: 'hidden',
+        boxShadow: '0 10px 30px rgba(0,0,0,0.3)',
+        transition: 'transform 0.3s ease',
+        cursor: 'pointer'
+      }}
+      onMouseOver={(e) => e.target.style.transform = 'scale(1.05)'}
+      onMouseOut={(e) => e.target.style.transform = 'scale(1)'}
+      >
+        <img 
+          src="./profile1.jpg"
+          alt="Professional Headshot 1" 
+          style={{
+            width: '100%',
+            height: '300px',
+            objectFit: 'cover'
+          }}
+        />
+        <div style={{padding: '1rem'}}>
+          <h3 style={{color: '#64ffda', marginBottom: '0.5rem'}}>Professional Headshot</h3>
+          <p style={{color: '#a8b2d1', fontSize: '0.9rem'}}>Formal academic portrait for conferences and publications</p>
+        </div>
+      </div>
+
+      {/* Photo 2 */}
+      <div style={{
+        backgroundColor: '#112240',
+        borderRadius: '15px',
+        overflow: 'hidden',
+        boxShadow: '0 10px 30px rgba(0,0,0,0.3)',
+        transition: 'transform 0.3s ease',
+        cursor: 'pointer'
+      }}
+      onMouseOver={(e) => e.target.style.transform = 'scale(1.05)'}
+      onMouseOut={(e) => e.target.style.transform = 'scale(1)'}
+      >
+        <img 
+          src="./profile2.jpg"
+          alt="Professional Photo 2" 
+          style={{
+            width: '100%',
+            height: '300px',
+            objectFit: 'cover'
+          }}
+        />
+        <div style={{padding: '1rem'}}>
+          <h3 style={{color: '#64ffda', marginBottom: '0.5rem'}}>Research Portrait</h3>
+          <p style={{color: '#a8b2d1', fontSize: '0.9rem'}}>Professional photo for research presentations</p>
+        </div>
+      </div>
+
+      {/* Photo 3 */}
+      <div style={{
+        backgroundColor: '#112240',
+        borderRadius: '15px',
+        overflow: 'hidden',
+        boxShadow: '0 10px 30px rgba(0,0,0,0.3)',
+        transition: 'transform 0.3s ease',
+        cursor: 'pointer'
+      }}
+      onMouseOver={(e) => e.target.style.transform = 'scale(1.05)'}
+      onMouseOut={(e) => e.target.style.transform = 'scale(1)'}
+      >
+        <img 
+          src="./profile3.jpg"
+          alt="Professional Photo 3" 
+          style={{
+            width: '100%',
+            height: '300px',
+            objectFit: 'cover'
+          }}
+        />
+        <div style={{padding: '1rem'}}>
+          <h3 style={{color: '#64ffda', marginBottom: '0.5rem'}}>Academic Portrait</h3>
+          <p style={{color: '#a8b2d1', fontSize: '0.9rem'}}>Professional image for academic profiles</p>
+        </div>
+      </div>
+
+      {/* Photo 4 */}
+      <div style={{
+        backgroundColor: '#112240',
+        borderRadius: '15px',
+        overflow: 'hidden',
+        boxShadow: '0 10px 30px rgba(0,0,0,0.3)',
+        transition: 'transform 0.3s ease',
+        cursor: 'pointer'
+      }}
+      onMouseOver={(e) => e.target.style.transform = 'scale(1.05)'}
+      onMouseOut={(e) => e.target.style.transform = 'scale(1)'}
+      >
+        <img 
+          src="./profile4.jpg"
+          alt="Professional Photo 4" 
+          style={{
+            width: '100%',
+            height: '300px',
+            objectFit: 'cover'
+          }}
+        />
+        <div style={{padding: '1rem'}}>
+          <h3 style={{color: '#64ffda', marginBottom: '0.5rem'}}>Conference Photo</h3>
+          <p style={{color: '#a8b2d1', fontSize: '0.9rem'}}>Professional image for industry networking</p>
+        </div>
+      </div>
+    </div>
+
+    <div style={{
+      textAlign: 'center',
+      marginTop: '3rem',
+      padding: '2rem',
+      backgroundColor: '#112240',
+      borderRadius: '10px'
+    }}>
+      <h3 style={{color: '#64ffda', marginBottom: '1rem'}}>Professional Use</h3>
+      <p style={{color: '#a8b2d1', lineHeight: '1.6'}}>
+        These professional photos are used across various platforms including academic profiles, 
+        conference presentations, research publications, and professional networking. Each image 
+        represents different aspects of my academic and research journey in marine engineering and underwater robotics.
+      </p>
+    </div>
+  </div>
+);
+
+// Simple Contact component
 const Contact = () => (
   <div style={{
     maxWidth: '1200px',
@@ -159,247 +884,28 @@ const Contact = () => (
     textAlign: 'center'
   }}>
     <h1 style={{fontSize: '3rem', color: '#64ffda', marginBottom: '2rem'}}>Get In Touch</h1>
-    <p style={{
-      fontSize: '1.2rem',
-      color: '#a8b2d1',
-      lineHeight: '1.8',
-      maxWidth: '700px',
-      margin: '0 auto 3rem'
-    }}>
-      I'm currently looking for new opportunities in robotics research and engineering.
-      Whether you have a question or just want to say hi, I'll get back to you!
+    <p style={{fontSize: '1.2rem', color: '#a8b2d1', marginBottom: '3rem', maxWidth: '600px', margin: '0 auto 3rem'}}>
+      I'm always interested in discussing research opportunities, collaborations, or potential projects in underwater robotics and SLAM.
     </p>
     
-    <div style={{
-      backgroundColor: '#112240',
-      padding: '2rem',
-      borderRadius: '10px',
-      maxWidth: '500px',
-      margin: '0 auto'
-    }}>
-      <div style={{marginBottom: '1.5rem', textAlign: 'left'}}>
-        <p style={{color: '#64ffda', marginBottom: '0.5rem'}}>Email:</p>
-        <p style={{color: '#e6f1ff', fontSize: '1.1rem'}}>rachelmerveille@example.com</p>
-      </div>
-      <div style={{marginBottom: '1.5rem', textAlign: 'left'}}>
-        <p style={{color: '#64ffda', marginBottom: '0.5rem'}}>LinkedIn:</p>
-        <p style={{color: '#e6f1ff', fontSize: '1.1rem'}}>linkedin.com/in/rachel-merveille</p>
-      </div>
-      <div style={{textAlign: 'left'}}>
-        <p style={{color: '#64ffda', marginBottom: '0.5rem'}}>GitHub:</p>
-        <p style={{color: '#e6f1ff', fontSize: '1.1rem'}}>github.com/MarvelousRachel</p>
+    <div style={{backgroundColor: '#112240', padding: '3rem', borderRadius: '10px', maxWidth: '600px', margin: '0 auto'}}>
+      <h3 style={{color: '#ccd6f6', marginBottom: '2rem'}}>Contact Information</h3>
+      <div style={{color: '#a8b2d1', fontSize: '1.1rem', lineHeight: '2'}}>
+        <p><strong>Email:</strong> marvelous@stu.gdou.edu.cn</p>
+        <p><strong>Phone:</strong> (+86) 166-6225-8487</p>
+        <p><strong>Institution:</strong> Guangdong Ocean University</p>
+        <p><strong>Location:</strong> Zhanjiang, Guangdong, China</p>
+        <p><strong>Research Focus:</strong> Underwater Robotics & SLAM</p>
       </div>
     </div>
   </div>
 );
+import { useImage } from './utils/assetUtils';
 
-// Simple CV component
-const CV = () => (
-  <div style={{
-    maxWidth: '1200px',
-    margin: '0 auto',
-    padding: '4rem 2rem'
-  }}>
-    <h1 style={{fontSize: '3rem', color: '#64ffda', marginBottom: '2rem'}}>Curriculum Vitae</h1>
-    
-    <div style={{marginBottom: '4rem'}}>
-      <h2 style={{color: '#ccd6f6', fontSize: '2rem', marginBottom: '1.5rem'}}>Research Experience</h2>
-      
-      <div style={{backgroundColor: '#112240', padding: '2rem', borderRadius: '10px', marginBottom: '2rem'}}>
-        <h3 style={{color: '#e6f1ff', fontSize: '1.5rem'}}>PhD Researcher</h3>
-        <p style={{color: '#64ffda'}}>Guangdong Ocean University | 2022 - Present</p>
-        <ul style={{color: '#a8b2d1', marginTop: '1rem', paddingLeft: '1.5rem', lineHeight: '1.6'}}>
-          <li>Developing underwater SLAM systems using vision-based sensors and deep learning</li>
-          <li>Implementing feature matching algorithms for underwater environments</li>
-          <li>Designing robust control systems for underwater vehicles</li>
-          <li>Testing and validating SLAM pipelines in laboratory environments</li>
-        </ul>
-      </div>
-      
-      <div style={{backgroundColor: '#112240', padding: '2rem', borderRadius: '10px'}}>
-        <h3 style={{color: '#e6f1ff', fontSize: '1.5rem'}}>Research Assistant</h3>
-        <p style={{color: '#64ffda'}}>Huzhou University | 2020 - 2022</p>
-        <ul style={{color: '#a8b2d1', marginTop: '1rem', paddingLeft: '1.5rem', lineHeight: '1.6'}}>
-          <li>Implemented computer vision algorithms for autonomous navigation</li>
-          <li>Developed a non-contact temperature detection device</li>
-          <li>Created navigation algorithms for mobile robots</li>
-        </ul>
-      </div>
-    </div>
-    
-    <div style={{marginBottom: '4rem'}}>
-      <h2 style={{color: '#ccd6f6', fontSize: '2rem', marginBottom: '1.5rem'}}>Publications</h2>
-      
-      <div style={{backgroundColor: '#112240', padding: '2rem', borderRadius: '10px', marginBottom: '2rem'}}>
-        <h3 style={{color: '#e6f1ff', fontSize: '1.5rem'}}>Underwater Visual SLAM Using Feature Matching</h3>
-        <p style={{color: '#64ffda'}}>Sensors Journal | 2023</p>
-        <p style={{color: '#a8b2d1', marginTop: '1rem'}}>
-          A novel approach to underwater visual SLAM using SuperPoint and SuperGlue feature matching,
-          accounting for water turbidity and lighting variations.
-        </p>
-      </div>
-      
-      <div style={{backgroundColor: '#112240', padding: '2rem', borderRadius: '10px'}}>
-        <h3 style={{color: '#e6f1ff', fontSize: '1.5rem'}}>Multi-sensor Fusion for Robust Underwater Navigation</h3>
-        <p style={{color: '#64ffda'}}>IEEE Transactions on Robotics | 2022</p>
-        <p style={{color: '#a8b2d1', marginTop: '1rem'}}>
-          A framework for fusing data from multiple sensors to enhance underwater navigation
-          accuracy in challenging environments.
-        </p>
-      </div>
-    </div>
-    
-    <div>
-      <h2 style={{color: '#ccd6f6', fontSize: '2rem', marginBottom: '1.5rem'}}>Awards & Patents</h2>
-      
-      <div style={{backgroundColor: '#112240', padding: '2rem', borderRadius: '10px', marginBottom: '2rem'}}>
-        <h3 style={{color: '#e6f1ff', fontSize: '1.5rem'}}>Guangdong Provincial Scholarship</h3>
-        <p style={{color: '#64ffda'}}>2022, 2023</p>
-        <p style={{color: '#a8b2d1', marginTop: '1rem'}}>
-          Awarded for excellence in research and academic performance.
-        </p>
-      </div>
-      
-      <div style={{backgroundColor: '#112240', padding: '2rem', borderRadius: '10px', marginBottom: '2rem'}}>
-        <h3 style={{color: '#e6f1ff', fontSize: '1.5rem'}}>Zhejiang Provincial Scholarship for Excellent International Students</h3>
-        <p style={{color: '#64ffda'}}>2021</p>
-        <p style={{color: '#a8b2d1', marginTop: '1rem'}}>
-          Recognized for outstanding academic achievements.
-        </p>
-      </div>
-      
-      <div style={{backgroundColor: '#112240', padding: '2rem', borderRadius: '10px'}}>
-        <h3 style={{color: '#e6f1ff', fontSize: '1.5rem'}}>Utility Model Patent</h3>
-        <p style={{color: '#64ffda'}}>Non-contact Temperature Detection Device | 2021</p>
-        <p style={{color: '#a8b2d1', marginTop: '1rem'}}>
-          Developed and patented a device for accurate non-contact temperature measurement.
-        </p>
-      </div>
-    </div>
-  </div>
-);
-
-// Simple Gallery component
-const Gallery = () => {
+const Home = () => {
+  const profileImage = useImage('profile1.jpg', 'RF');
+  
   return (
-    <div style={{
-      maxWidth: '1200px',
-      margin: '0 auto',
-      padding: '4rem 2rem'
-    }}>
-      <h1 style={{fontSize: '3rem', color: '#64ffda', marginBottom: '2rem'}}>Project Gallery</h1>
-      
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
-        gap: '2rem'
-      }}>
-        <div style={{
-          backgroundColor: '#112240',
-          borderRadius: '10px',
-          overflow: 'hidden',
-          boxShadow: '0 10px 30px -15px rgba(2,12,27,0.7)'
-        }}>
-          <div style={{height: '200px', overflow: 'hidden'}}>
-            <img 
-              src={getAssetPath('profile1.jpg')}
-              alt="Underwater SLAM" 
-              style={{
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover'
-              }}
-            />
-          </div>
-          <div style={{padding: '1.5rem'}}>
-            <h3 style={{color: '#e6f1ff', marginBottom: '0.75rem'}}>Underwater SLAM</h3>
-            <p style={{color: '#a8b2d1'}}>
-              Implementation of a visual SLAM system for underwater robots using custom feature matching.
-            </p>
-          </div>
-        </div>
-        
-        <div style={{
-          backgroundColor: '#112240',
-          borderRadius: '10px',
-          overflow: 'hidden',
-          boxShadow: '0 10px 30px -15px rgba(2,12,27,0.7)'
-        }}>
-          <div style={{height: '200px', overflow: 'hidden'}}>
-            <img 
-              src={getAssetPath('profile2.jpg')}
-              alt="Multi-sensor Fusion" 
-              style={{
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover'
-              }}
-            />
-          </div>
-          <div style={{padding: '1.5rem'}}>
-            <h3 style={{color: '#e6f1ff', marginBottom: '0.75rem'}}>Multi-sensor Fusion</h3>
-            <p style={{color: '#a8b2d1'}}>
-              A system that combines data from cameras, IMUs, and sonar for improved underwater navigation.
-            </p>
-          </div>
-        </div>
-        
-        <div style={{
-          backgroundColor: '#112240',
-          borderRadius: '10px',
-          overflow: 'hidden',
-          boxShadow: '0 10px 30px -15px rgba(2,12,27,0.7)'
-        }}>
-          <div style={{height: '200px', overflow: 'hidden'}}>
-            <img 
-              src={getAssetPath('profile3.jpg')}
-              alt="AUV Development" 
-              style={{
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover'
-              }}
-            />
-          </div>
-          <div style={{padding: '1.5rem'}}>
-            <h3 style={{color: '#e6f1ff', marginBottom: '0.75rem'}}>AUV Development</h3>
-            <p style={{color: '#a8b2d1'}}>
-              Design and implementation of autonomous underwater vehicle hardware and software.
-            </p>
-          </div>
-        </div>
-        
-        <div style={{
-          backgroundColor: '#112240',
-          borderRadius: '10px',
-          overflow: 'hidden',
-          boxShadow: '0 10px 30px -15px rgba(2,12,27,0.7)'
-        }}>
-          <div style={{height: '200px', overflow: 'hidden'}}>
-            <img 
-              src={getAssetPath('profile4.jpg')}
-              alt="Vision-based Control" 
-              style={{
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover'
-              }}
-            />
-          </div>
-          <div style={{padding: '1.5rem'}}>
-            <h3 style={{color: '#e6f1ff', marginBottom: '0.75rem'}}>Vision-based Control</h3>
-            <p style={{color: '#a8b2d1'}}>
-              Control systems for underwater robots using visual feedback for precise positioning.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-// Home component with direct image reference
-const Home = () => (
   <div style={{
     maxWidth: '1200px',
     margin: '0 auto',
@@ -416,30 +922,7 @@ const Home = () => (
       border: '4px solid #64ffda',
       boxShadow: '0 0 20px rgba(100, 255, 218, 0.3)'
     }}>
-      <img 
-        src={getAssetPath('profile1.jpg')}
-        alt="Fomekong Fomekong Rachel Merveille" 
-        onError={(e) => {
-          e.target.style.display = 'none';
-          const fallback = document.createElement('div');
-          fallback.style.width = '100%';
-          fallback.style.height = '100%';
-          fallback.style.backgroundColor = '#64ffda';
-          fallback.style.display = 'flex';
-          fallback.style.alignItems = 'center';
-          fallback.style.justifyContent = 'center';
-          fallback.style.fontSize = '4rem';
-          fallback.style.fontWeight = 'bold';
-          fallback.style.color = '#0a192f';
-          fallback.textContent = 'RF';
-          e.target.parentNode.appendChild(fallback);
-        }}
-        style={{
-          width: '100%',
-          height: '100%',
-          objectFit: 'cover'
-        }}
-      />
+      {profileImage.component}
     </div>
     
     <h1 style={{

@@ -4,27 +4,347 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projects - Fomekong Fomekong Rachel Merveille</title>
-  <link rel="stylesheet" href="index.css">
+  <meta name="description" content="Projects by Fomekong Fomekong Rachel Merveille">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
   <style>
-    body { background: #0a192f; color: #ccd6f6; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
-    .container { max-width: 900px; margin: 0 auto; padding: 2rem; }
-    nav { background: #112240; padding: 1rem 2rem; border-bottom: 1px solid #233554; }
-    nav a { color: #64ffda; margin-right: 2rem; text-decoration: none; font-weight: bold; }
-    nav a:hover { text-decoration: underline; }
-    h1 { color: #64ffda; }
+    /* Base styles */
+    :root {
+      --navy: #0a192f;
+      --light-navy: #112240;
+      --lightest-navy: #233554;
+      --slate: #8892b0;
+      --light-slate: #a8b2d1;
+      --lightest-slate: #ccd6f6;
+      --white: #e6f1ff;
+      --green: #64ffda;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--navy);
+      color: var(--lightest-slate);
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    
+    /* Navigation */
+    nav {
+      background-color: var(--light-navy);
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid var(--lightest-navy);
+    }
+    
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .logo {
+      color: var(--white);
+      font-weight: 700;
+      font-size: 1.2rem;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    .logo:hover {
+      color: var(--green);
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+    
+    .nav-link {
+      color: var(--light-slate);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    .nav-link:hover {
+      color: var(--green);
+    }
+    
+    /* Projects Section */
+    .projects-section {
+      padding: 6rem 0;
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      color: var(--white);
+    }
+    
+    .projects-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 4rem;
+    }
+    
+    .project {
+      background-color: var(--light-navy);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .project-content {
+      padding: 2rem;
+      flex: 1;
+    }
+    
+    h2 {
+      color: var(--white);
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+    }
+    
+    .project-date {
+      color: var(--green);
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+    
+    .project-description {
+      color: var(--light-slate);
+      margin-bottom: 1.5rem;
+    }
+    
+    .tech-list {
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      margin-bottom: 1.5rem;
+      gap: 1rem;
+    }
+    
+    .tech-item {
+      color: var(--green);
+      font-size: 0.85rem;
+      background-color: var(--lightest-navy);
+      padding: 0.25rem 0.75rem;
+      border-radius: 3px;
+    }
+    
+    .project-features {
+      list-style: none;
+      margin-bottom: 1.5rem;
+    }
+    
+    .feature-item {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .feature-item:before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: var(--green);
+    }
+    
+    footer {
+      background-color: var(--light-navy);
+      padding: 2rem;
+      text-align: center;
+      border-top: 1px solid var(--lightest-navy);
+      margin-top: 4rem;
+    }
+    
+    @media (max-width: 768px) {
+      .project {
+        flex-direction: column;
+      }
+      
+      .project-content {
+        order: 2;
+      }
+      
+      .project-image {
+        order: 1;
+      }
+    }
   </style>
 </head>
 <body>
   <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="projects.html">Projects</a>
-    <a href="contact.html">Contact</a>
-    <a href="Rachel_Merveille_CV.html">Download CV</a>
+    <div class="nav-container">
+      <a href="index.html" class="logo">Fomekong Fomekong Rachel Merveille</a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="Rachel_Merveille_CV.html" class="nav-link">CV</a>
+        <a href="skills.html" class="nav-link">Skills</a>
+        <a href="projects.html" class="nav-link">Projects</a>
+        <a href="publications.html" class="nav-link">Publications</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </div>
+    </div>
   </nav>
-  <div class="container">
-    <h1>Projects</h1>
-    <p>This page will showcase projects by Fomekong Fomekong Rachel Merveille.</p>
-  </div>
+  
+  <main>
+    <section class="projects-section container">
+      <h1>Featured Projects</h1>
+      
+      <div class="projects-container">
+        <!-- Underwater SLAM Project -->
+        <div class="project">
+          <div class="project-content">
+            <h2>Underwater SLAM System Development</h2>
+            <span class="project-date">Guangdong Ocean University, 2024</span>
+            <p class="project-description">
+              Designed and implemented a complete underwater SLAM solution optimized for turbid and challenging marine environments. 
+              The system integrates advanced deep learning techniques with traditional SLAM approaches to provide robust navigation and mapping capabilities for underwater vehicles.
+            </p>
+            
+            <h3>Technologies Used</h3>
+            <ul class="tech-list">
+              <li class="tech-item">Python</li>
+              <li class="tech-item">PyTorch</li>
+              <li class="tech-item">OpenCV</li>
+              <li class="tech-item">Open3D</li>
+              <li class="tech-item">g2o</li>
+              <li class="tech-item">SuperGlue/SuperPoint</li>
+            </ul>
+            
+            <h3>Key Features</h3>
+            <ul class="project-features">
+              <li class="feature-item">Custom SLAM pipeline from feature extraction to 3D mapping</li>
+              <li class="feature-item">Adaptive image enhancement for turbid underwater conditions</li>
+              <li class="feature-item">Multi-stage feature matching with fallback mechanisms</li>
+              <li class="feature-item">Water current compensation algorithms in pose estimation</li>
+              <li class="feature-item">g2o-based pose graph optimization with robust kernels</li>
+              <li class="feature-item">Adaptive voxel downsampling for efficient 3D reconstruction</li>
+              <li class="feature-item">Efficient loop closure detection using appearance and geometry</li>
+              <li class="feature-item">Comprehensive visualization tools for trajectory analysis</li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- Robot Car with SLAM Project -->
+        <div class="project">
+          <div class="project-content">
+            <h2>Robot Car with Sensor Fusion SLAM</h2>
+            <span class="project-date">Guangdong Ocean University, 2022-Present</span>
+            <p class="project-description">
+              Developed a ground-based robot car platform for implementing and testing SLAM algorithms in real-world environments.
+              This project focuses on integrating multiple sensors (stereo camera, LiDAR) with ROS to create a robust mapping and localization system.
+            </p>
+            
+            <h3>Technologies Used</h3>
+            <ul class="tech-list">
+              <li class="tech-item">ROS/ROS2</li>
+              <li class="tech-item">C++</li>
+              <li class="tech-item">Python</li>
+              <li class="tech-item">LiDAR</li>
+              <li class="tech-item">Stereo Camera</li>
+              <li class="tech-item">Gazebo</li>
+              <li class="tech-item">RViz</li>
+            </ul>
+            
+            <h3>Key Features</h3>
+            <ul class="project-features">
+              <li class="feature-item">Full ROS integration with custom message types</li>
+              <li class="feature-item">Real-time sensor fusion of camera and LiDAR data</li>
+              <li class="feature-item">Differential drive kinematics implementation</li>
+              <li class="feature-item">Gazebo simulation environment for testing</li>
+              <li class="feature-item">Complete URDF model with accurate physics</li>
+              <li class="feature-item">RViz visualization for real-time mapping</li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- Robot Arm Design Project -->
+        <div class="project">
+          <div class="project-content">
+            <h2>Enhanced Robotic Arm for Injection Molding</h2>
+            <span class="project-date">Huzhou University, 2021-2022</span>
+            <p class="project-description">
+              Designed and developed a novel robotic arm solution for injection molding applications with improved adaptability and precision.
+              This project focused on enhancing manufacturing efficiency through automation and optimized control systems.
+            </p>
+            
+            <h3>Technologies Used</h3>
+            <ul class="tech-list">
+              <li class="tech-item">SolidWorks</li>
+              <li class="tech-item">AutoCAD</li>
+              <li class="tech-item">Arduino</li>
+              <li class="tech-item">Control Systems</li>
+              <li class="tech-item">Motor Control</li>
+            </ul>
+            
+            <h3>Key Features</h3>
+            <ul class="project-features">
+              <li class="feature-item">Precision control systems for high-accuracy positioning</li>
+              <li class="feature-item">3D-designed components optimized for manufacturing</li>
+              <li class="feature-item">Automated product selection, closing, and packaging</li>
+              <li class="feature-item">Adaptable end-effector for different product types</li>
+              <li class="feature-item">Energy-efficient operation with optimized movements</li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- 3D Printing & Assembly Projects -->
+        <div class="project">
+          <div class="project-content">
+            <h2>Drone & 3D Printer Assembly Projects</h2>
+            <span class="project-date">Huzhou University, 2019-2022</span>
+            <p class="project-description">
+              Led multiple hands-on engineering projects including drone assembly, 3D printer construction, 
+              and electronics lab development. These projects provided practical experience in hardware integration,
+              calibration, and troubleshooting.
+            </p>
+            
+            <h3>Technologies Used</h3>
+            <ul class="tech-list">
+              <li class="tech-item">3D Printing</li>
+              <li class="tech-item">Drone Electronics</li>
+              <li class="tech-item">Arduino</li>
+              <li class="tech-item">Electronics Design</li>
+              <li class="tech-item">Assembly Techniques</li>
+            </ul>
+            
+            <h3>Key Features</h3>
+            <ul class="project-features">
+              <li class="feature-item">Successful assembly and testing of functional drones</li>
+              <li class="feature-item">Construction and calibration of 3D printing systems</li>
+              <li class="feature-item">Robot car assembly with Arduino control systems</li>
+              <li class="feature-item">Practical application of electronics principles</li>
+              <li class="feature-item">Student mentorship in laboratory environments</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <footer>
+    <p>&copy; 2025 Fomekong Fomekong Rachel Merveille. All rights reserved.</p>
+  </footer>
 </body>
 </html>

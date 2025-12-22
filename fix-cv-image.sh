@@ -2,11 +2,31 @@
 
 echo "🖼️ Updating CV with embedded profile image..."
 
+# Define paths
+CV_FILE="Rachel_Merveille_CV.html"
+CV_DOWNLOAD_FILE="Rachel_Merveille_CV_download.html"
+DOCS_DIR="docs"
+PROFILE_IMAGE="profile1.jpg"
+
+# Check if profile image exists
+if [ ! -f "$PROFILE_IMAGE" ]; then
+  echo "❌ Error: Profile image $PROFILE_IMAGE not found!"
+  exit 1
+fi
+
 # Get the base64 encoded image
-PROFILE_IMAGE=$(base64 -i /Users/fomekongrachelmarvelous/Desktop/FOMEKONG\ FOMEKONG\ /portfolio/profile1.jpg)
+echo "Encoding profile image as base64..."
+PROFILE_BASE64=$(base64 -i "$PROFILE_IMAGE")
+
+# Create a backup of the original CV file
+if [ -f "$CV_FILE" ]; then
+  echo "Creating backup of original CV file..."
+  cp "$CV_FILE" "${CV_FILE}.bak"
+fi
 
 # Create a new CV HTML file with the embedded image
-cat > /Users/fomekongrachelmarvelous/Desktop/FOMEKONG\ FOMEKONG\ /portfolio/Rachel_Merveille_CV.html << EOL
+echo "Creating CV with embedded image..."
+cat > "$CV_FILE" << EOL
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fomekong Fomekong Rachel Merveille - CV</title>
-  <script src="cv-download.js"></script>
+  <script src="export-cv-download.js"></script>
   <style>
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
@@ -298,6 +298,41 @@
       }
     }
   </style>
+<style id="export-print-style">
+  /* Hide download buttons in print and exported versions */
+  @media print {
+    .download-options, .download-button, 
+    [role="button"], button, 
+    .btn, .nav, nav, header {
+      display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
+    }
+  }
+  
+  /* Class to be added when exporting to PDF or image */
+  body.exporting .download-options,
+  body.exporting .download-button,
+  body.exporting [role="button"],
+  body.exporting button,
+  body.exporting .btn, 
+  body.exporting .nav,
+  body.exporting nav, 
+  body.exporting header {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+  }
+  
+  /* Fix any potential layout issues in exported versions */
+  @media print, (exporting) {
+    body {
+      background-color: white !important;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+  }
+</style>
 </head>
 <body>
   <!-- Left column -->
@@ -401,8 +436,13 @@
         <div class="job-title">Graduate Research Student</div>
         <div class="company">Huzhou University, Huzhou, Zhejiang, China</div>
         <ul class="experience-bullets">
-          <li>Researched robotic automation and 3D printing technologies</li>
-          <li>Published research on Industry 4.0's impact on robotics in North American Academic Research Journal</li>
+          <li>Contributed to research projects in the Key Laboratory of Electronics, focusing on drone assembly and 3D printing technologies</li>
+          <li>Participated in practical projects at Gaoyuangjin Machinery Technology Co., Ltd, gaining hands-on experience in mold part production and plastic product manufacturing</li>
+          <li>Successfully completed a graduation project titled "Robotized Solution for Selecting, Closing, and Packaging Products in Injection Molding Machines"</li>
+          <li>Assisted in automation projects related to conveyor roller construction and machine building at Sanhe Automation Equipment Co., Ltd</li>
+          <li>Implemented computer vision algorithms for autonomous navigation</li>
+          <li>Created navigation algorithms for mobile robots</li>
+          <li>Published an article titled "The Influence of Industry 4.0: A Case Study of Injection Molding Machines, Drones, 3D Printing, and Aeronautic Factories" in North American Academic Research Journal</li>
         </ul>
       </div>
     </div>
