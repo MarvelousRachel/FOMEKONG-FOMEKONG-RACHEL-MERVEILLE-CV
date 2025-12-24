@@ -236,7 +236,7 @@ function downloadAsPDF() {
   exportFrame.style.position = 'absolute';
   exportFrame.style.left = '-9999px';
   exportFrame.style.width = '1200px'; 
-  exportFrame.style.height = '2000px';
+  exportFrame.style.height = '10000px'; // Increased to capture full document
   exportFrame.src = getExportVersionUrl();
   document.body.appendChild(exportFrame);
   
@@ -253,14 +253,25 @@ function downloadAsPDF() {
           iframeDoc.body.classList.add('exporting');
         }
         
-        // Capture the iframe content
+        // Get the actual full height of the document
+        const fullHeight = Math.max(
+          iframeDoc.body.scrollHeight,
+          iframeDoc.body.offsetHeight,
+          iframeDoc.documentElement.clientHeight,
+          iframeDoc.documentElement.scrollHeight,
+          iframeDoc.documentElement.offsetHeight
+        );
+        
+        // Capture the iframe content with full document height
         html2canvas(iframeDoc.body, {
-          scale: 3, // Higher resolution for better quality
+          scale: 2, // Good resolution without being too heavy
           useCORS: true,
           allowTaint: true,
           backgroundColor: '#ffffff',
           scrollY: 0,
-          windowHeight: iframeDoc.documentElement.offsetHeight,
+          scrollX: 0,
+          windowHeight: fullHeight,
+          height: fullHeight,
           logging: false,
           onclone: function(clonedDoc) {
             // Ensure all UI elements are hidden in the clone
