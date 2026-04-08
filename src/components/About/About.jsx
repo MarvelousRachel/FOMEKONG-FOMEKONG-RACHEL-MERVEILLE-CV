@@ -64,7 +64,6 @@ const About = () => {
           <h3>PhD in Marine Engineering (Underwater Robotics, SLAM, Deep Learning, Sensor Fusion)</h3>
           <p>Guangdong Ocean University, Zhanjiang, Guangdong, China</p>
           <p className="timeline">Expected 2026</p>
-          <p>Thesis: Comprehensive Enhancement of Underwater UUV Navigation via Visual-Lidar SLAM: A Multi-Sensor and AI-Integrated Approach</p>
           <p>GPA: 86.9/100</p>
           <p>Relevant Coursework: Advanced Robotics, Control Systems, Sensor Fusion, Applied Mathematics for Robotics</p>
         </div>
@@ -73,7 +72,6 @@ const About = () => {
           <h3>Master of Engineering in Control Engineering</h3>
           <p>Huzhou University, Huzhou, Zhejiang, China</p>
           <p className="timeline">Graduated 2022</p>
-          <p>Thesis: Enhancing Manufacturing Efficiency: A New Robotic Arm Design for Injection Molding with Improved Adaptability and Precision</p>
           <p>GPA: 80.6/100</p>
         </div>
         

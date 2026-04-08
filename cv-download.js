@@ -10,10 +10,9 @@
  * - Modern UI with hover effects
  */
 
-// Function to get the current CV URL for export
+// Function to get the clean export version URL
 function getExportVersionUrl() {
-  // Use the current page URL directly to capture the full content
-  return window.location.href;
+  return window.location.href.replace('Rachel_Merveille_CV.html', 'Rachel_Merveille_CV_export.html');
 }
 
 // Utility function to prepare document for export (hide all UI elements)
@@ -232,47 +231,36 @@ function downloadAsPDF() {
   loadingOverlay.appendChild(message);
   document.body.appendChild(loadingOverlay);
   
-  // Create an invisible iframe with the current CV page
+  // Create an invisible iframe with the export version
   const exportFrame = document.createElement('iframe');
   exportFrame.style.position = 'absolute';
   exportFrame.style.left = '-9999px';
   exportFrame.style.width = '1200px'; 
-  exportFrame.style.height = '15000px'; // Large height to ensure full document capture
+  exportFrame.style.height = '2000px';
   exportFrame.src = getExportVersionUrl();
   document.body.appendChild(exportFrame);
   
   // Wait for iframe to load before capturing
   exportFrame.onload = function() {
-    // Give extra time for images and fonts to load
+    // Give some time for the iframe content to fully render
     setTimeout(function() {
       try {
         // Access the iframe document
         const iframeDoc = exportFrame.contentDocument || exportFrame.contentWindow.document;
-
-        // Ensure the exporting class is added
+        
+        // Make sure the exporting class is added
         if (iframeDoc.body) {
           iframeDoc.body.classList.add('exporting');
         }
-
-        // Dynamically calculate the full height of the document
-        const fullHeight = Math.max(
-          iframeDoc.body.scrollHeight,
-          iframeDoc.body.offsetHeight,
-          iframeDoc.documentElement.clientHeight,
-          iframeDoc.documentElement.scrollHeight,
-          iframeDoc.documentElement.offsetHeight
-        );
-
-        // Adjust html2canvas settings to capture the full content
+        
+        // Capture the iframe content
         html2canvas(iframeDoc.body, {
-          scale: 2, // Balanced resolution for quality and performance
+          scale: 3, // Higher resolution for better quality
           useCORS: true,
           allowTaint: true,
           backgroundColor: '#ffffff',
           scrollY: 0,
-          scrollX: 0,
-          windowHeight: fullHeight,
-          height: fullHeight,
+          windowHeight: iframeDoc.documentElement.offsetHeight,
           logging: false,
           onclone: function(clonedDoc) {
             // Ensure all UI elements are hidden in the clone
@@ -359,7 +347,7 @@ function downloadAsPDF() {
         document.body.removeChild(exportFrame);
         alert('Error generating PDF. Please try again.');
       }
-    }, 3000); // Give more time for iframe content to fully render
+    }, 2000); // Give time for iframe content to render
   };
 }
 

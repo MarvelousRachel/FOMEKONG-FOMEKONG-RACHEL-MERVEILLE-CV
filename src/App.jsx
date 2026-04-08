@@ -511,7 +511,6 @@ const CV = () => {
               </p>
               <ul style={{fontSize: '0.9rem', lineHeight: '1.5', paddingLeft: '1.5rem'}}>
                 <li>Specialization: Underwater Robotics, SLAM, Deep Learning, Sensor Fusion</li>
-                <li>Thesis: Comprehensive Enhancement of Underwater UUV Navigation via Visual-Lidar SLAM: A Multi-Sensor and AI-Integrated Approach</li>
                 <li>GPA: 86.9/100</li>
                 <li>Relevant Coursework: Advanced Robotics, Control Systems, Sensor Fusion, Applied Mathematics for Robotics</li>
               </ul>
@@ -526,7 +525,6 @@ const CV = () => {
                 Huzhou • Graduated 2022
               </p>
               <ul style={{fontSize: '0.9rem', lineHeight: '1.5', paddingLeft: '1.5rem'}}>
-                <li>Thesis: Enhancing Manufacturing Efficiency: A New Robotic Arm Design for Injection Molding with Improved Adaptability and Precision</li>
                 <li>GPA: 80.6/100</li>
               </ul>
             </div>

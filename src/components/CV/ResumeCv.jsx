@@ -93,47 +93,7 @@ const ResumeCv = () => {
             </div>
           </div>
         </div>
-          <div className="reference">
-            <h3>DR. WANG JIAN</h3>
-            <p>Huzhou University</p>
-            <p>T: +86 987 654 3210</p>
-            <p>E: wang.jian@huzhou.edu.cn</p>
-          </div>
-        </div>
         
-        <div className="sidebar-section hobbies">
-          <h2>HOBBIES</h2>
-          <ul>
-            <li>Deep sea diving</li>
-            <li>Programming</li>
-            <li>Reading scientific publications</li>
-            <li>Chess</li>
-            <li>Photography</li>
-          </ul>
-        </div>
-      </div>
-      
-      {/* Main content */}
-      <div className="resume-content">
-        <div className="resume-header">
-          <div className="name-title">
-            <h1>FOMEKONG FOMEKONG</h1>
-            <h1>RACHEL MERVEILLE</h1>
-            <h2>PhD CANDIDATE</h2>
-          </div>
-          
-          <div className="contact-info">
-            <div className="contact-item">
-              📍 <span>Zhanjiang, Guangdong, China</span>
-            </div>
-            <div className="contact-item">
-              📞 <span>+86 123 456 7890</span>
-            </div>
-            <div className="contact-item">
-              ✉️ <span>rachel.fomekong@example.com</span>
-            </div>
-          </div>
-        </div>
         
         <section className="resume-section work-experience">
           <h2>WORK EXPERIENCE</h2>
@@ -186,7 +146,6 @@ const ResumeCv = () => {
               <ul className="education-details">
                 <li>Specialized in underwater SLAM and robotics</li>
                 <li>Published several papers in renowned scientific journals</li>
-                <li>Research focus: Enhancement of Underwater UUV Navigation via Visual-Lidar SLAM</li>
               </ul>
             </div>
           </div>

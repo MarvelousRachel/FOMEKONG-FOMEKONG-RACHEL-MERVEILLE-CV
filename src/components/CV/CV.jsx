@@ -64,17 +64,6 @@ const CV = () => {
       
       {/* Main Content */}
       <div className="cv-main">
-        import React from 'react';
-import ModernCV from './ModernCV';
-
-const CV = () => {
-  return (
-    <ModernCV />
-  );
-};
-
-export default CV;
-        
         <section className="cv-section">
           <h2>Work Experience</h2>
           <div className="timeline-item">
@@ -139,7 +128,6 @@ export default CV;
               </div>
               <ul className="education-details">
                 <li>Specialized in underwater SLAM and robotics</li>
-                <li>Research focus: Enhancement of Underwater UUV Navigation via Visual-Lidar SLAM</li>
                 <li>Supervisor: Prof. Li Zhang</li>
                 <li>GPA: 86.9/100</li>
               </ul>
@@ -155,7 +143,6 @@ export default CV;
                 <span>2018 - 2020</span>
               </div>
               <ul className="education-details">
-                <li>Thesis: Robotic Arm Design for Injection Molding</li>
                 <li>Supervisor: Prof. Wang Jian</li>
                 <li>GPA: 80.6/100</li>
               </ul>
@@ -184,9 +171,6 @@ export default CV;
             <span className="cv-date">2018 - 2020</span>
           </div>
           <p className="cv-institution">Huzhou University, Huzhou, Zhejiang, China</p>
-          <p className="cv-details">
-            <strong>Thesis:</strong> Robotic Arm Design for Injection Molding
-          </p>
           <p className="cv-details">
             <strong>Supervisor:</strong> Prof. Wang Jian
           </p>
