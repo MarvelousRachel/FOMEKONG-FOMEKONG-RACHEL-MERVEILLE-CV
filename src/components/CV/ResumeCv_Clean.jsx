@@ -175,18 +175,34 @@ const ResumeCv = () => {
 
         <section className="resume-section publications">
           <h2>PUBLICATIONS</h2>
-          
+
           <div className="publication-item">
-            <h4>"Influence of Sensor Fusion on Underwater SLAM Performance"</h4>
-            <p className="journal">Sensors Journal, 2023</p>
-            <p className="authors">F. R. Marvelous, et al.</p>
+            <h4>"The Influence of Industry 4.0: A Case Study of Injection Molding Machines, Drones, 3D Printing, and Automation Factories"</h4>
+            <p className="journal">North American Academic Research, 4(12), 221–238 (2021)</p>
+            <p className="authors">Fomekong, F. F., &amp; Hugejile.</p>
           </div>
-          
+
           <div className="publication-item">
-            <h4>"The Influence of Industry 4.0: A Case Study of Injection Molding Machines, Drones, 3D Printing, and Aeronautic Factories"</h4>
-            <p className="journal">North American Academic Research Journal, 2021</p>
-            <p className="authors">F. R. Marvelous, et al.</p>
+            <h4>"Enhancing Underwater SLAM Navigation and Perception: A Comprehensive Review of Deep Learning Integration"</h4>
+            <p className="journal">Sensors, 24(21), 7034 (2024)</p>
+            <p className="authors">Fomekong, F. F., Jia, B., Xu, Z., &amp; Fred, B.</p>
           </div>
+
+          <div className="publication-item">
+            <h4>"Advancements in Sensor Fusion for Underwater SLAM: A Review on Enhanced Navigation and Environmental Perception"</h4>
+            <p className="journal">Sensors, 24(23), 7490 (2024)</p>
+            <p className="authors">Fomekong, F. F., Jia, B., Xu, Z., &amp; Fred, B.</p>
+          </div>
+
+          <h3 style={{ marginTop: '1.25rem' }}>Papers under review / submitted</h3>
+          <ul style={{ marginTop: '0.5rem' }}>
+            <li><strong>Turbidity-Resilient Underwater Mapping with Multi-Detector Fusion and Sequential RGB-D Odometry</strong> — submitted to <em>IEEE Journal of Oceanic Engineering (IEEE JOE)</em> (First Author)</li>
+            <li><strong>Underwater SLAM via Deep Learning and Sensor Fusion</strong> (First Author)</li>
+            <li><strong>Full-Sequence Reconstruction and Chunked Drift Reduction for Underwater SplaTAM</strong> (First Author)</li>
+            <li><strong>Underwater SLAM for Long Sequences: Loop Closure and Artifact-Aware 3D Reconstruction</strong> (First Author)</li>
+            <li><strong>JMPCNet: A Jointly-trained Network with Multi-scale Perception Capability for Underwater Fish Counting</strong> — <em>Engineering Applications of Artificial Intelligence</em> (Second Author)</li>
+            <li><strong>Beyond Nutrition: How Dietary Methionine Shields Golden Pompano from Cold-Stress Triads via Nrf2 Activation</strong> (Second Author)</li>
+          </ul>
         </section>
 
         <section className="resume-section skills">
