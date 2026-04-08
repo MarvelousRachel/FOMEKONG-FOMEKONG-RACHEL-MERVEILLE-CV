@@ -633,6 +633,18 @@ const CV = () => {
                 DOI: 10.21203/rs.3.rs-5524250/v1
               </li>
             </ul>
+
+            <h3 style={{ marginTop: '1.25rem', fontSize: '1.05rem', color: '#333' }}>
+              Papers under review / submitted
+            </h3>
+            <ul style={{fontSize: '0.9rem', lineHeight: '1.6', paddingLeft: '1.5rem', marginTop: '0.75rem'}}>
+              <li style={{marginBottom: '0.75rem'}}><strong>Turbidity-Resilient Underwater Mapping with Multi-Detector Fusion and Sequential RGB-D Odometry</strong> — submitted to <em>IEEE Journal of Oceanic Engineering (IEEE JOE)</em> (First Author)</li>
+              <li style={{marginBottom: '0.75rem'}}><strong>Underwater SLAM via Deep Learning and Sensor Fusion</strong> (First Author)</li>
+              <li style={{marginBottom: '0.75rem'}}><strong>Full-Sequence Reconstruction and Chunked Drift Reduction for Underwater SplaTAM</strong> (First Author)</li>
+              <li style={{marginBottom: '0.75rem'}}><strong>Underwater SLAM for Long Sequences: Loop Closure and Artifact-Aware 3D Reconstruction</strong> (First Author)</li>
+              <li style={{marginBottom: '0.75rem'}}><strong>JMPCNet: A Jointly-trained Network with Multi-scale Perception Capability for Underwater Fish Counting</strong> — <em>Engineering Applications of Artificial Intelligence</em> (Second Author)</li>
+              <li><strong>Beyond Nutrition: How Dietary Methionine Shields Golden Pompano from Cold-Stress Triads via Nrf2 Activation</strong> (Second Author)</li>
+            </ul>
           </div>
 
           {/* Patents */}
