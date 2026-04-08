@@ -64,7 +64,7 @@ const About = () => (
       
       <p style={{marginBottom: '2rem'}}>
         Published researcher with multiple papers in prestigious journals including Sensors. Holder of utility model patent 
-        for non-contact temperature detection device. Recipient of Guangdong Provincial Scholarship (2022, 2023) and 
+  for non-contact temperature detection device. Recipient of Guangdong Provincial Scholarship (2022, 2023, 2025 - 2026) and 
         Zhejiang Provincial Scholarship for Excellent International Students (2021). Successfully developed complete 
         underwater SLAM systems and conducted field testing of UUVs in laboratory environments.
       </p>
