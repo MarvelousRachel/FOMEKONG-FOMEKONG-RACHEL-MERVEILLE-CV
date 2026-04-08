@@ -502,14 +502,57 @@
       </div>
     </div>
     
-    <h3 class="right-section-title">Skills | 技能</h3>
+    <h3 class="right-section-title">Technical Skills | 技术技能</h3>
     <ul class="experience-bullets">
-      <li><strong>SLAM:</strong> ORB-SLAM3, NICE-SLAM, Visual-Lidar SLAM, Pose Graph Optimization (g2o)</li>
-      <li><strong>Sensor Fusion:</strong> LiDAR, IMU, Camera, DVL</li>
-      <li><strong>Deep Learning:</strong> CNNs, RNNs, GANs, PyTorch, TensorFlow</li>
-      <li><strong>Programming:</strong> Python, C++, MATLAB, ROS2, Arduino</li>
-      <li><strong>3D Mapping:</strong> Open3D, Point Cloud Processing, Object Recognition</li>
-      <li><strong>Tools:</strong> OpenCV, Gazebo, RViz, SolidWorks, AutoCAD, Docker</li>
+      <li>
+        <strong>Underwater SLAM &amp; State Estimation</strong>
+        <ul>
+          <li>Underwater SLAM pipeline design under degraded visibility (turbidity, backscatter, low texture)</li>
+          <li>Pose representation in SE(3); trajectory composition and long-horizon drift analysis</li>
+          <li>Pose-graph SLAM concepts (loop-closure constraints, offline optimization integration)</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Sensor Fusion &amp; Synchronization</strong>
+        <ul>
+          <li>Multi-sensor integration: RGB-D, IMU, UWB planar reference</li>
+          <li>Timestamp association and synchronization for long sequences</li>
+          <li>IMU-assisted yaw stabilization (heading fusion; gyro-Δψ fusion with 1D Kalman filtering)</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Perception &amp; Learning-Based Motion Estimation</strong>
+        <ul>
+          <li>Multi-detector fusion for underwater perception (YOLOv8, Faster R-CNN, DETR)</li>
+          <li>IoU-based score-ordered Non-Maximum Suppression (NMS) for consensus detection fusion</li>
+          <li>Self-supervised visual odometry: photometric reprojection + geometric consistency + multi-scale regularization</li>
+          <li>Optional IMU-derived relative-rotation supervision for improved rotational stability</li>
+        </ul>
+      </li>
+      <li>
+        <strong>3D Reconstruction &amp; Mapping</strong>
+        <ul>
+          <li>Incremental dense RGB-D reconstruction and colored point-cloud fusion</li>
+          <li>Memory-aware long-sequence reconstruction (SplaTAM / Gaussian-splatting backend) under limited GPU memory</li>
+          <li>Overlapping chunk-based optimization for drift mitigation in long sequences</li>
+          <li>Loop-closed reconstruction workflow: RTAB-Map loop closure → full-frame pose interpolation (translation + quaternion SLERP) → full-frame fusion → Poisson meshing → trim-to-cloud cleanup → kNN color transfer</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Evaluation &amp; Reproducibility</strong>
+        <ul>
+          <li>Coverage-aware evaluation (accuracy + tracking coverage reporting)</li>
+          <li>Trajectory alignment and error metrics: SE(2) Kabsch and Sim(2) Umeyama alignment; ATE/RPE computation</li>
+          <li>Dataset engineering: TUM-RGBD-style formatting, calibration/intrinsics handling, artifact export (trajectories, point clouds, meshes)</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Robotics &amp; System Integration</strong>
+        <ul>
+          <li>Occupancy grid mapping and A* path planning from reconstructed environments</li>
+          <li>ROS1 Noetic integration (RViz/Gazebo replay, publishing maps/paths/trajectories for system-level validation)</li>
+        </ul>
+      </li>
     </ul>
     
     <h3 class="right-section-title">Accomplishments | 成就</h3>
