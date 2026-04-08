@@ -341,7 +341,7 @@ const CV = () => {
               HONORS & AWARDS
             </h3>
             <div style={{fontSize: '0.8rem', lineHeight: '1.5'}}>
-              <p style={{marginBottom: '0.5rem'}}>• Guangdong Provincial Scholarship (2022, 2023)</p>
+              <p style={{marginBottom: '0.5rem'}}>• Guangdong Provincial Scholarship (2022, 2023, 2025 - 2026)</p>
               <p style={{marginBottom: '0.5rem'}}>• Zhejiang Provincial Scholarship for Excellent International Students (2021)</p>
               <p style={{marginBottom: '0.5rem'}}>• Graduate Merit Scholar, Huzhou University (2021)</p>
               <p style={{marginBottom: '0.5rem'}}>• HSK 3 Chinese Language Proficiency Certificate (2021)</p>

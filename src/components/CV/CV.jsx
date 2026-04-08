@@ -345,6 +345,14 @@ const CV = () => {
         <h2>Awards & Honors</h2>
         <div className="cv-item">
           <div className="cv-item-header">
+            <h3>Guangdong Provincial Scholarship</h3>
+            <span className="cv-date">2022, 2023, 2025 - 2026</span>
+          </div>
+          <p className="cv-details">Awarded for excellence in research and academic performance.</p>
+        </div>
+
+        <div className="cv-item">
+          <div className="cv-item-header">
             <h3>Chinese Government Scholarship for International Students</h3>
             <span className="cv-date">2020 - 2024</span>
           </div>
