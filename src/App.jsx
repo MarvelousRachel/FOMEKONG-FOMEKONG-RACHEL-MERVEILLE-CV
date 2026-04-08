@@ -49,25 +49,29 @@ const About = () => (
     <h1 style={{fontSize: '3rem', color: '#64ffda', marginBottom: '2rem'}}>About Me</h1>
     <div style={{fontSize: '1.2rem', lineHeight: '1.8', color: '#a8b2d1'}}>
       <p style={{marginBottom: '2rem'}}>
-        Competent and self-driven researcher with a focus on robotics, sensor fusion, SLAM, and robot control systems. 
-        Extensive background in the development of both terrestrial and underwater robots, with practical knowledge of 
-        kinematics, motor control, navigation, and localization methods like ORB-SLAM3 and vSLAM. Competent in ROS/ROS2, 
-        C++, and Python, with a solid academic background in sensor integration and deep learning.
+        PhD candidate in Marine Engineering with research experience in underwater robotics, perception, and multi-sensor fusion
+        under challenging field conditions (turbidity, backscatter, low texture). I build and evaluate robust pipelines for
+        navigation and mapping, combining data-driven methods (deep learning) with classical estimation and optimization.
       </p>
-      
+
       <p style={{marginBottom: '2rem'}}>
-        Enthusiastic about using state-of-the-art technologies to improve navigation and robotic systems in challenging 
-        environments. Currently working toward a PhD with the goal of improving robotic autonomy through multi-sensor 
-        fusion and underwater navigation. Experienced in developing complete SLAM pipelines integrating SuperPoint/SuperGlue 
-        feature matching, adaptive voxel mapping with Open3D, and water current compensation algorithms.
+        I’m particularly interested in marine engineering problems where environmental dynamics matter—linking flow-driven
+        effects and system behavior—and in developing AI-assisted, sensor-driven solutions that can improve efficiency,
+        selectivity, and ecological outcomes in real marine environments.
       </p>
-      
+
       <p style={{marginBottom: '2rem'}}>
-        Published researcher with multiple papers in prestigious journals including Sensors. Holder of utility model patent 
-  for non-contact temperature detection device. Recipient of Guangdong Provincial Scholarship (2022, 2023, 2025 - 2026) and 
-        Zhejiang Provincial Scholarship for Excellent International Students (2021). Successfully developed complete 
-        underwater SLAM systems and conducted field testing of UUVs in laboratory environments.
+        Published researcher with multiple papers in prestigious journals including Sensors. Holder of a utility model patent
+        for a non-contact temperature detection device. Recipient of Guangdong Provincial Scholarship (2022, 2023, 2025 - 2026)
+        and Zhejiang Provincial Scholarship for Excellent International Students (2021).
       </p>
+
+      <h2 style={{color: '#64ffda', fontSize: '2rem', marginTop: '3rem', marginBottom: '1rem'}}>Research Interests (Targeted)</h2>
+      <ul style={{marginTop: '0.75rem', paddingLeft: '1.5rem'}}>
+        <li>Smart marine systems combining sensing + AI to adapt to changing environmental conditions</li>
+        <li>Coupled dynamics problems (environment–system interaction) and data-driven decision support</li>
+        <li>Marine perception and underwater monitoring for ecological efficiency and selectivity-focused applications</li>
+      </ul>
 
       <h2 style={{color: '#64ffda', fontSize: '2rem', marginTop: '3rem', marginBottom: '1rem'}}>Education</h2>
       <div style={{backgroundColor: '#112240', padding: '2rem', borderRadius: '10px', marginBottom: '2rem'}}>
@@ -257,12 +261,13 @@ const CV = () => {
               PROFESSIONAL SUMMARY
             </h3>
             <p style={{fontSize: '0.9rem', lineHeight: '1.4'}}>
-              Competent and self-driven researcher with a focus on robotics, sensor fusion, SLAM, and robot control systems. 
-              Extensive background in the development of both terrestrial and underwater robots, with practical knowledge of 
-              kinematics, motor control, navigation, and localization methods like ORB-SLAM3 and vSLAM. Competent in ROS/ROS2, 
-              C++, and Python, with a solid academic background in sensor integration and deep learning. Enthusiastic about 
-              using state-of-the-art technologies to improve navigation and robotic systems in challenging environments. 
-              Working toward a PhD with the goal of improving robotic autonomy through multi-sensor fusion and underwater navigation.
+              PhD candidate in Marine Engineering with research experience in underwater robotics, perception, and multi-sensor
+              fusion under challenging conditions (e.g., turbidity and low-visibility imagery). I develop and evaluate robust
+              navigation and mapping pipelines that combine deep learning with classical estimation and optimization.
+
+              I’m motivated by marine engineering applications where environmental dynamics influence system behavior, and I’m
+              interested in applying sensing + AI to improve efficiency, selectivity, and ecological outcomes in real-world marine
+              systems.
             </p>
           </div>
 
@@ -379,6 +384,24 @@ const CV = () => {
             </div>
           </div>
 
+          {/* Research Interests */}
+          <div style={{marginBottom: '2.5rem'}}>
+            <h2 style={{
+              fontSize: '1.5rem',
+              color: '#333',
+              borderBottom: '3px solid #333',
+              paddingBottom: '0.5rem',
+              marginBottom: '1rem'
+            }}>
+              RESEARCH INTERESTS
+            </h2>
+            <ul style={{fontSize: '0.9rem', lineHeight: '1.5', paddingLeft: '1.5rem', margin: 0}}>
+              <li>Smart marine systems combining sensing + AI for adaptive operation in changing environments</li>
+              <li>Environment–system interaction problems (linking flow-driven effects and behavior/response)</li>
+              <li>Underwater monitoring and perception pipelines supporting ecological efficiency and selectivity-focused applications</li>
+            </ul>
+          </div>
+
           {/* Work Experience */}
           <div style={{marginBottom: '3rem'}}>
             <h2 style={{
@@ -402,6 +425,7 @@ const CV = () => {
               <ul style={{fontSize: '0.9rem', lineHeight: '1.5', paddingLeft: '1.5rem'}}>
                 <li>Engaged in various research projects focused on the operation of unmanned underwater vehicles (UUVs) for navigation, mapping, and environmental perception</li>
                 <li>Conducted field testing and operation of UUVs in lab pool environments</li>
+                <li>Built perception and estimation pipelines robust to environment-driven effects (turbidity/backscatter/low texture), experience transferable to marine systems where flow and environmental dynamics influence sensing and behavior</li>
                 <li>Contributed to the development and optimization of underwater navigation systems, integrating sensor data from IMUs, cameras for improved SLAM accuracy</li>
                 <li>Assisted in the design and implementation of deep learning models to enhance feature extraction and data fusion for more reliable navigation</li>
                 <li>Engaged in simultaneous localization and mapping research including SuperPoint, SuperGlue, CNN (encoder, decoder), pose optimization methods such as g2o</li>
