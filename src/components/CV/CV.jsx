@@ -256,46 +256,57 @@ const CV = () => {
         <h2>Technical Skills</h2>
         <div className="skills-grid">
           <div className="skill-category">
-            <h3>Programming Languages</h3>
+            <h3>Underwater SLAM &amp; State Estimation</h3>
             <ul className="skill-list">
-              <li>Python</li>
-              <li>C++</li>
-              <li>MATLAB</li>
-              <li>C</li>
-              <li>JavaScript</li>
+              <li>Underwater SLAM pipeline design under degraded visibility (turbidity, backscatter, low texture)</li>
+              <li>Pose representation in SE(3); trajectory composition and long-horizon drift analysis</li>
+              <li>Pose-graph SLAM concepts (loop-closure constraints, offline optimization integration)</li>
             </ul>
           </div>
           
           <div className="skill-category">
-            <h3>Deep Learning</h3>
+            <h3>Sensor Fusion &amp; Synchronization</h3>
             <ul className="skill-list">
-              <li>PyTorch</li>
-              <li>TensorFlow</li>
-              <li>Keras</li>
-              <li>CNNs, RNNs, LSTMs</li>
-              <li>GANs</li>
+              <li>Multi-sensor integration: RGB-D, IMU, UWB planar reference</li>
+              <li>Timestamp association and synchronization for long sequences</li>
+              <li>IMU-assisted yaw stabilization (heading fusion; gyro-Δψ fusion with 1D Kalman filtering)</li>
             </ul>
           </div>
           
           <div className="skill-category">
-            <h3>SLAM & Navigation</h3>
+            <h3>Perception &amp; Learning-Based Motion Estimation</h3>
             <ul className="skill-list">
-              <li>ORB-SLAM3</li>
-              <li>NICE-SLAM</li>
-              <li>Visual-Lidar SLAM</li>
-              <li>Pose Graph Optimization</li>
-              <li>Structure from Motion</li>
+              <li>Multi-detector fusion for underwater perception (YOLOv8, Faster R-CNN, DETR)</li>
+              <li>IoU-based score-ordered Non-Maximum Suppression (NMS) for consensus detection fusion</li>
+              <li>Self-supervised visual odometry: photometric reprojection + geometric consistency + multi-scale regularization</li>
+              <li>Optional IMU-derived relative-rotation supervision for improved rotational stability</li>
             </ul>
           </div>
           
           <div className="skill-category">
-            <h3>Robotics</h3>
+            <h3>3D Reconstruction &amp; Mapping</h3>
             <ul className="skill-list">
-              <li>ROS/ROS2</li>
-              <li>Robot Kinematics</li>
-              <li>Path Planning</li>
-              <li>Sensor Fusion</li>
-              <li>Control Systems</li>
+              <li>Incremental dense RGB-D reconstruction and colored point-cloud fusion</li>
+              <li>Memory-aware long-sequence reconstruction (SplaTAM / Gaussian-splatting backend) under limited GPU memory</li>
+              <li>Overlapping chunk-based optimization for drift mitigation in long sequences</li>
+              <li>Loop-closed reconstruction workflow: RTAB-Map loop closure → full-frame pose interpolation (translation + quaternion SLERP) → full-frame fusion → Poisson meshing → trim-to-cloud cleanup → kNN color transfer</li>
+            </ul>
+          </div>
+
+          <div className="skill-category">
+            <h3>Evaluation &amp; Reproducibility</h3>
+            <ul className="skill-list">
+              <li>Coverage-aware evaluation (accuracy + tracking coverage reporting)</li>
+              <li>Trajectory alignment and error metrics: SE(2) Kabsch and Sim(2) Umeyama alignment; ATE/RPE computation</li>
+              <li>Dataset engineering: TUM-RGBD-style formatting, calibration/intrinsics handling, artifact export (trajectories, point clouds, meshes)</li>
+            </ul>
+          </div>
+
+          <div className="skill-category">
+            <h3>Robotics &amp; System Integration</h3>
+            <ul className="skill-list">
+              <li>Occupancy grid mapping and A* path planning from reconstructed environments</li>
+              <li>ROS1 Noetic integration (RViz/Gazebo replay, publishing maps/paths/trajectories for system-level validation)</li>
             </ul>
           </div>
         </div>
