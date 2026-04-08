@@ -49,6 +49,74 @@ const Publications = () => {
       category: "preprint",
       keywords: ["Robotic Arm", "Injection Molding", "Manufacturing Efficiency", "Precision Control"]
     },
+
+    // Papers under review / submitted
+    {
+      id: 5,
+      title: "Turbidity-Resilient Underwater Mapping with Multi-Detector Fusion and Sequential RGB-D Odometry",
+      authors: "First Author",
+      journal: "Submitted to IEEE Journal of Oceanic Engineering (IEEE JOE)",
+      year: 2026,
+      doi: "",
+      abstract: "Paper under review / submitted.",
+      category: "preprint",
+      keywords: ["Underwater Mapping", "Multi-Detector Fusion", "RGB-D Odometry", "Turbidity"]
+    },
+    {
+      id: 6,
+      title: "Underwater SLAM via Deep Learning and Sensor Fusion",
+      authors: "First Author",
+      journal: "Under review / submitted",
+      year: 2026,
+      doi: "",
+      abstract: "Paper under review / submitted.",
+      category: "preprint",
+      keywords: ["Underwater SLAM", "Deep Learning", "Sensor Fusion"]
+    },
+    {
+      id: 7,
+      title: "Full-Sequence Reconstruction and Chunked Drift Reduction for Underwater SplaTAM",
+      authors: "First Author",
+      journal: "Under review / submitted",
+      year: 2026,
+      doi: "",
+      abstract: "Paper under review / submitted.",
+      category: "preprint",
+      keywords: ["SplaTAM", "3D Reconstruction", "Drift Reduction", "Long Sequences"]
+    },
+    {
+      id: 8,
+      title: "Underwater SLAM for Long Sequences: Loop Closure and Artifact-Aware 3D Reconstruction",
+      authors: "First Author",
+      journal: "Under review / submitted",
+      year: 2026,
+      doi: "",
+      abstract: "Paper under review / submitted.",
+      category: "preprint",
+      keywords: ["Loop Closure", "Artifact Awareness", "3D Reconstruction", "Underwater SLAM"]
+    },
+    {
+      id: 9,
+      title: "JMPCNet: A Jointly-trained Network with Multi-scale Perception Capability for Underwater Fish Counting",
+      authors: "Second Author",
+      journal: "Engineering Applications of Artificial Intelligence (under review / submitted)",
+      year: 2026,
+      doi: "",
+      abstract: "Paper under review / submitted.",
+      category: "preprint",
+      keywords: ["Fish Counting", "Multi-scale Perception", "Underwater Vision", "Deep Learning"]
+    },
+    {
+      id: 10,
+      title: "Beyond Nutrition: How Dietary Methionine Shields Golden Pompano from Cold-Stress Triads via Nrf2 Activation",
+      authors: "Second Author",
+      journal: "Under review / submitted",
+      year: 2026,
+      doi: "",
+      abstract: "Paper under review / submitted.",
+      category: "preprint",
+      keywords: ["Aquaculture", "Cold Stress", "Nrf2", "Methionine"]
+    },
     
   ];
 
@@ -93,23 +161,34 @@ const Publications = () => {
             
             {publication.category === 'journal' ? (
               <p className="publication-venue">
-                <span className="venue-name">{publication.journal}</span>, 
+                <span className="venue-name">{publication.journal}</span>,{' '}
+                <span className="publication-year">{publication.year}</span>
+              </p>
+            ) : publication.category === 'conference' ? (
+              <p className="publication-venue">
+                <span className="venue-name">{publication.conference}</span>,{' '}
+                <span className="venue-location">{publication.location}</span>,{' '}
                 <span className="publication-year">{publication.year}</span>
               </p>
             ) : (
               <p className="publication-venue">
-                <span className="venue-name">{publication.conference}</span>, 
-                <span className="venue-location">{publication.location}</span>, 
+                <span className="venue-name">{publication.journal}</span>,{' '}
                 <span className="publication-year">{publication.year}</span>
               </p>
             )}
-            
-            <div className="publication-doi">
-              <span>DOI: </span>
-              <a href={`https://doi.org/${publication.doi.replace('doi:', '')}`} target="_blank" rel="noopener noreferrer">
-                {publication.doi}
-              </a>
-            </div>
+
+            {!!publication.doi && (
+              <div className="publication-doi">
+                <span>DOI: </span>
+                <a
+                  href={`https://doi.org/${publication.doi.replace('doi:', '')}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {publication.doi}
+                </a>
+              </div>
+            )}
             
             <div className="publication-details">
               <div className="publication-abstract">
