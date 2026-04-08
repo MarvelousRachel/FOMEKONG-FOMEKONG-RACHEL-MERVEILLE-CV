@@ -1,6 +1,7 @@
 import { HashRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { useImage } from './utils/assetUtils';
 import './App.css'
+import Publications from './components/Publications/Publications';
 
 // Simple Navbar component
 const Navbar = () => (
@@ -32,6 +33,7 @@ const Navbar = () => (
         <Link to="/about" style={{color: '#ccd6f6', textDecoration: 'none', fontSize: '1rem'}}>About</Link>
         <Link to="/cv" style={{color: '#ccd6f6', textDecoration: 'none', fontSize: '1rem'}}>CV</Link>
         <Link to="/skills" style={{color: '#ccd6f6', textDecoration: 'none', fontSize: '1rem'}}>Skills</Link>
+  <Link to="/publications" style={{color: '#ccd6f6', textDecoration: 'none', fontSize: '1rem'}}>Publications</Link>
         <Link to="/gallery" style={{color: '#ccd6f6', textDecoration: 'none', fontSize: '1rem'}}>Gallery</Link>
         <Link to="/contact" style={{color: '#ccd6f6', textDecoration: 'none', fontSize: '1rem'}}>Contact</Link>
       </div>
@@ -1004,6 +1006,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/cv" element={<CV />} />
             <Route path="/skills" element={<Skills />} />
+            <Route path="/publications" element={<Publications />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<Home />} />
