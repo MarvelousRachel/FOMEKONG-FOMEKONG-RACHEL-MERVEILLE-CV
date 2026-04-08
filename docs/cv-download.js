@@ -12,7 +12,14 @@
 
 // Function to get the clean export version URL
 function getExportVersionUrl() {
-  return window.location.href.replace('Rachel_Merveille_CV.html', 'Rachel_Merveille_CV_export.html');
+  // This script runs on multiple pages (index.html and CV pages).
+  // If we're not currently on Rachel_Merveille_CV.html, the replace() would be a no-op.
+  // Use a robust, same-directory URL instead.
+  try {
+    return new URL('Rachel_Merveille_CV_export.html', window.location.href).toString();
+  } catch {
+    return 'Rachel_Merveille_CV_export.html';
+  }
 }
 
 // Utility function to prepare document for export (hide all UI elements)

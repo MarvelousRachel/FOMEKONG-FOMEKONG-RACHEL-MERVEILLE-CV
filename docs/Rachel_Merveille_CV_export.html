@@ -498,18 +498,34 @@
     </ul>
     
     <h3 class="right-section-title">Projects</h3>
-    <div class="experience">
-      <div class="experience-details">
-        <div class="job-title">Underwater SLAM System Development</div>
-        <p>Developed a complete underwater SLAM system using Python/PyTorch, integrating SuperGlue/SuperPoint feature matching and voxel mapping for robust underwater navigation.</p>
-      </div>
-    </div>
-    <div class="experience">
-      <div class="experience-details">
-        <div class="job-title">Robust Underwater Visual SLAM System</div>
-        <p>Created a visual SLAM system using deep feature matching, OpenCV, Open3D, and pose graph optimization for high-accuracy mapping in low-visibility underwater environments.</p>
-      </div>
-    </div>
+        <div class="experience">
+          <div class="experience-details">
+            <div class="job-title">Underwater SLAM System Development</div>
+            <p>Developed a complete underwater SLAM system using Python/PyTorch, integrating SuperGlue/SuperPoint feature matching and voxel mapping for robust underwater navigation.</p>
+          </div>
+        </div>
+        <div class="experience">
+          <div class="experience-details">
+            <div class="job-title">Underwater SLAM Framework Experiments (2026)</div>
+            <p>
+              Built and evaluated a unified underwater SLAM framework for GPS-denied, turbid environments under compute/memory constraints.
+            </p>
+            <ul class="experience-bullets">
+              <li><strong>Perception:</strong> fused YOLOv8 + Faster R-CNN + DETR detections using IoU/NMS-based consensus filtering for low-visibility stability</li>
+              <li><strong>Mapping & navigation:</strong> sequential RGB-D odometry → incremental dense fusion → occupancy-grid export + A* planning</li>
+              <li><strong>Learning-based VO:</strong> self-supervised photometric reprojection + geometric consistency; optional IMU relative-rotation supervision; coverage-aware evaluation</li>
+              <li><strong>Long sequences:</strong> memory-aware underwater-adapted SplaTAM; overlapping chunk optimization to mitigate drift under limited VRAM</li>
+              <li><strong>Interpretable 3D reconstruction:</strong> RTAB-Map loop closure; full-frame RGB-D fusion; Poisson meshing; trim-to-cloud cleanup; bounded kNN color transfer</li>
+              <li><strong>System integration:</strong> ROS (RViz/Gazebo) replay demos and map-based validation</li>
+            </ul>
+          </div>
+        </div>
+        <div class="experience">
+          <div class="experience-details">
+            <div class="job-title">Robust Underwater Visual SLAM System</div>
+            <p>Created a visual SLAM system using deep feature matching, OpenCV, Open3D, and pose graph optimization for high-accuracy mapping in low-visibility underwater environments.</p>
+          </div>
+        </div>
     
     <h3 class="right-section-title">Skills</h3>
     <ul class="experience-bullets">
@@ -521,6 +537,16 @@
       <li><strong>Tools:</strong> OpenCV, Gazebo, RViz, SolidWorks, AutoCAD</li>
     </ul>
     
+    <h3 class="right-section-title">Technical Skills</h3>
+    <ul class="experience-bullets">
+      <li><strong>Underwater SLAM & State Estimation:</strong> underwater SLAM pipeline design under degraded visibility (turbidity, backscatter, low texture); pose representation in SE(3); trajectory composition and long-horizon drift analysis; pose-graph SLAM concepts (loop-closure constraints, offline optimization integration)</li>
+      <li><strong>Sensor Fusion & Synchronization:</strong> multi-sensor integration (RGB-D, IMU, UWB planar reference); timestamp association and synchronization for long sequences; IMU-assisted yaw stabilization (heading fusion; gyro-Δψ fusion with 1D Kalman filtering)</li>
+      <li><strong>Perception & Learning-Based Motion Estimation:</strong> multi-detector fusion for underwater perception (YOLOv8, Faster R-CNN, DETR); IoU-based score-ordered NMS for consensus fusion; self-supervised visual odometry (photometric reprojection + geometric consistency + multi-scale regularization); optional IMU-derived relative-rotation supervision for improved rotational stability</li>
+      <li><strong>3D Reconstruction & Mapping:</strong> incremental dense RGB-D reconstruction and colored point-cloud fusion; memory-aware long-sequence reconstruction (SplaTAM / Gaussian-splatting backend) under limited GPU memory; overlapping chunk-based optimization for drift mitigation; loop-closed reconstruction workflow (RTAB-Map loop closure → full-frame pose interpolation with translation + quaternion SLERP → full-frame fusion → Poisson meshing → trim-to-cloud cleanup → kNN color transfer)</li>
+      <li><strong>Evaluation & Reproducibility:</strong> coverage-aware evaluation (accuracy + tracking coverage reporting); trajectory alignment and error metrics (SE(2) Kabsch and Sim(2) Umeyama alignment; ATE/RPE computation); dataset engineering (TUM-RGBD formatting, calibration/intrinsics handling, artifact export: trajectories, point clouds, meshes)</li>
+      <li><strong>Robotics & System Integration:</strong> occupancy grid mapping and A* path planning from reconstructed environments; ROS1 Noetic integration (RViz/Gazebo replay, publishing maps/paths/trajectories for system-level validation)</li>
+    </ul>
+
     <h3 class="right-section-title">Accomplishments</h3>
     <ul class="experience-bullets">
       <li>Proficient in deep learning and robotic systems, improving accuracy and system performance.</li>
