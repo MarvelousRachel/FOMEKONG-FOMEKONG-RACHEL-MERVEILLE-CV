@@ -105,9 +105,18 @@ const ResumeCv = () => {
                 <span className="period">2022 - Present</span>
               </div>
               <ul className="job-details">
-                <li>Develop underwater SLAM systems using deep feature extraction and multi-detector fusion</li>
-                <li>Integrate IMU and visual data for pose refinement and trajectory optimization</li>
-                <li>Conduct real-time 3D reconstruction using Open3D for dynamic underwater mapping</li>
+                <li>Led the development of underwater SLAM systems, integrating deep feature extraction and multi-detector fusion (Faster R-CNN, DETR, YOLOv8) for robust perception in degraded underwater imagery.</li>
+                <li>Developed visual–inertial SLAM components combining IMU and visual inputs to improve pose estimation stability and long-horizon consistency.</li>
+                <li>Implemented incremental dense RGB-D 3D reconstruction using Open3D, supporting online/offline mapping and improved reconstruction quality.</li>
+                <li>Conducted experimental validation on underwater datasets, evaluating pose accuracy and system efficiency across multiple pipeline configurations.</li>
+                <li>Integrated SplaTAM with an underwater RGB-D dataset and achieved stronger reconstruction quality than NICE-SLAM on the same sequence; conducted systematic debugging and optimization for long-sequence processing (4,015 frames) under high GPU utilization and memory constraints.</li>
+                <li>Developed path planning modules adapted to underwater datasets, including multi-direction navigation planning and trajectory-to-goal planning.</li>
+                <li>Validated navigation in ROS/Gazebo using the LRAUV model within a Docker environment, achieving successful simulation for straight-line navigation between two goal points.</li>
+                <li>Implemented classical planning algorithms in C++, including A* and RRT, for baseline comparison and modular integration.</li>
+                <li>Trained a deep learning model for monocular depth estimation (RGB → depth) and obtained high-quality depth outputs for downstream mapping/VO experiments.</li>
+                <li>Built and tested multiple SLAM variants: feature-based pipelines using ORB (with fallback tests using SIFT/SURF where applicable), learning-based features (e.g., SuperPoint), and deep feature extractors (ResNet50/ResNet101); implemented feature matching, trajectory estimation, pose estimation via transformation matrices, and loop closure using Bag-of-Words and NetVLAD; performed 3D reconstruction using Open3D.</li>
+                <li>Integrated occupancy-grid mapping and A* planning for shortest-path navigation from initial to goal positions, coupled with reconstruction outputs for end-to-end system demonstrations.</li>
+                <li>Implemented additional computer vision algorithms for autonomous navigation and developed navigation algorithms for mobile robots.</li>
               </ul>
             </div>
           </div>
