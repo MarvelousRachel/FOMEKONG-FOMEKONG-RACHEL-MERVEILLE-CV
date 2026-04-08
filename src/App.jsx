@@ -1,4 +1,5 @@
 import { HashRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { useImage } from './utils/assetUtils';
 import './App.css'
 
 // Simple Navbar component
@@ -101,90 +102,63 @@ const Skills = () => (
     <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '2rem'}}>
       
       <div style={{backgroundColor: '#112240', padding: '2rem', borderRadius: '10px'}}>
-        <h3 style={{color: '#64ffda', marginBottom: '1rem'}}>Deep Learning & Machine Learning</h3>
+        <h3 style={{color: '#64ffda', marginBottom: '1rem'}}>Underwater SLAM & State Estimation</h3>
         <ul style={{color: '#a8b2d1', lineHeight: '1.6', fontSize: '0.9rem'}}>
-          <li>PyTorch, CNNs, GANs, RNNs, LSTMs</li>
-          <li>Reinforcement Learning</li>
-          <li>Model Development (Linear Regression, Classification)</li>
-          <li>Computer Vision & Object Recognition</li>
-          <li>Multi-class Classification</li>
+          <li>Underwater SLAM pipeline design under degraded visibility (turbidity, backscatter, low texture)</li>
+          <li>Pose representation in SE(3); trajectory composition and long-horizon drift analysis</li>
+          <li>Pose-graph SLAM concepts (loop-closure constraints, offline optimization integration)</li>
         </ul>
       </div>
 
       <div style={{backgroundColor: '#112240', padding: '2rem', borderRadius: '10px'}}>
-        <h3 style={{color: '#64ffda', marginBottom: '1rem'}}>SLAM & Navigation</h3>
+        <h3 style={{color: '#64ffda', marginBottom: '1rem'}}>Sensor Fusion & Synchronization</h3>
         <ul style={{color: '#a8b2d1', lineHeight: '1.6', fontSize: '0.9rem'}}>
-          <li>ORB-SLAM3, NICE-SLAM, Visual-Lidar SLAM</li>
-          <li>SuperPoint/SuperGlue Integration</li>
-          <li>Custom SLAM Pipeline Development</li>
-          <li>Loop Closure Detection</li>
-          <li>g2o-based Pose Graph Optimization</li>
+          <li>Multi-sensor integration: RGB-D, IMU, UWB planar reference</li>
+          <li>Timestamp association and synchronization for long sequences</li>
+          <li>IMU-assisted yaw stabilization (heading fusion; gyro-Δψ fusion with 1D Kalman filtering)</li>
         </ul>
       </div>
 
       <div style={{backgroundColor: '#112240', padding: '2rem', borderRadius: '10px'}}>
-        <h3 style={{color: '#64ffda', marginBottom: '1rem'}}>ROS/ROS2 Ecosystem</h3>
+        <h3 style={{color: '#64ffda', marginBottom: '1rem'}}>Perception & Learning-Based Motion Estimation</h3>
         <ul style={{color: '#a8b2d1', lineHeight: '1.6', fontSize: '0.9rem'}}>
-          <li>RViz, RViz2, Gazebo, ros2_control CLI</li>
-          <li>ROS2 Publishers, Subscribers, Parameters</li>
-          <li>URDF Modeling & Visualization</li>
-          <li>Robot Simulation & Control</li>
-          <li>Package Management & Inter-process Messaging</li>
+          <li>Multi-detector fusion for underwater perception (YOLOv8, Faster R-CNN, DETR)</li>
+          <li>IoU-based score-ordered Non-Maximum Suppression (NMS) for consensus detection fusion</li>
+          <li>Self-supervised visual odometry: photometric reprojection + geometric consistency + multi-scale regularization</li>
+          <li>Optional IMU-derived relative-rotation supervision for improved rotational stability</li>
         </ul>
       </div>
 
       <div style={{backgroundColor: '#112240', padding: '2rem', borderRadius: '10px'}}>
-        <h3 style={{color: '#64ffda', marginBottom: '1rem'}}>Sensor Fusion & Integration</h3>
+        <h3 style={{color: '#64ffda', marginBottom: '1rem'}}>3D Reconstruction & Mapping</h3>
         <ul style={{color: '#a8b2d1', lineHeight: '1.6', fontSize: '0.9rem'}}>
-          <li>LiDAR, IMU, Camera, DVL</li>
-          <li>Sonar Integration for Underwater Navigation</li>
-          <li>Visual-Inertial-Depth Sensor Fusion</li>
-          <li>Multi-sensor Fusion with Uncertainty Modeling</li>
+          <li>Incremental dense RGB-D reconstruction and colored point-cloud fusion</li>
+          <li>Memory-aware long-sequence reconstruction (SplaTAM / Gaussian-splatting backend) under limited GPU memory</li>
+          <li>Overlapping chunk-based optimization for drift mitigation in long sequences</li>
+          <li>Loop-closed reconstruction workflow: RTAB-Map loop closure → full-frame pose interpolation (translation + quaternion SLERP) → full-frame fusion → Poisson meshing → trim-to-cloud cleanup → kNN color transfer</li>
         </ul>
       </div>
 
       <div style={{backgroundColor: '#112240', padding: '2rem', borderRadius: '10px'}}>
-        <h3 style={{color: '#64ffda', marginBottom: '1rem'}}>Programming & Development</h3>
+        <h3 style={{color: '#64ffda', marginBottom: '1rem'}}>Evaluation & Reproducibility</h3>
         <ul style={{color: '#a8b2d1', lineHeight: '1.6', fontSize: '0.9rem'}}>
-          <li>Python, C++, MATLAB, Arduino</li>
-          <li>Ubuntu, Colab, VS Code</li>
-          <li>Virtual Machine Configuration</li>
-          <li>System Integration & Development</li>
+          <li>Coverage-aware evaluation (accuracy + tracking coverage reporting)</li>
+          <li>Trajectory alignment and error metrics: SE(2) Kabsch and Sim(2) Umeyama alignment; ATE/RPE computation</li>
+          <li>Dataset engineering: TUM-RGBD-style formatting, calibration/intrinsics handling, artifact export (trajectories, point clouds, meshes)</li>
         </ul>
       </div>
 
       <div style={{backgroundColor: '#112240', padding: '2rem', borderRadius: '10px'}}>
-        <h3 style={{color: '#64ffda', marginBottom: '1rem'}}>3D Processing & Design</h3>
+        <h3 style={{color: '#64ffda', marginBottom: '1rem'}}>Robotics & System Integration</h3>
         <ul style={{color: '#a8b2d1', lineHeight: '1.6', fontSize: '0.9rem'}}>
-          <li>Open3D Point Cloud Processing</li>
-          <li>OpenCV Image Processing</li>
-          <li>SolidWorks, AutoCAD, Fusion 360</li>
-          <li>Voxel Mapping & 3D Reconstruction</li>
-        </ul>
-      </div>
-
-      <div style={{backgroundColor: '#112240', padding: '2rem', borderRadius: '10px'}}>
-        <h3 style={{color: '#64ffda', marginBottom: '1rem'}}>Underwater Robotics</h3>
-        <ul style={{color: '#a8b2d1', lineHeight: '1.6', fontSize: '0.9rem'}}>
-          <li>Water Current Compensation Algorithms</li>
-          <li>Turbidity-adaptive Image Preprocessing</li>
-          <li>Underwater Computer Vision Techniques</li>
-          <li>UUV Operation & Field Testing</li>
-        </ul>
-      </div>
-
-      <div style={{backgroundColor: '#112240', padding: '2rem', borderRadius: '10px'}}>
-        <h3 style={{color: '#64ffda', marginBottom: '1rem'}}>Robotics & Control</h3>
-        <ul style={{color: '#a8b2d1', lineHeight: '1.6', fontSize: '0.9rem'}}>
-          <li>Robot Kinematics & Motion Control</li>
-          <li>Differential Drive Control</li>
-          <li>Velocity & Speed Controllers</li>
-          <li>Hardware Abstraction & Device Control</li>
+          <li>Occupancy grid mapping and A* path planning from reconstructed environments</li>
+          <li>ROS1 Noetic integration (RViz/Gazebo replay, publishing maps/paths/trajectories for system-level validation)</li>
         </ul>
       </div>
     </div>
   </div>
 );
+
 
 // Professional CV component
 const CV = () => {
@@ -898,8 +872,6 @@ const Contact = () => (
     </div>
   </div>
 );
-import { useImage } from './utils/assetUtils';
-
 const Home = () => {
   const profileImage = useImage('profile1.jpg', 'RF');
   
@@ -978,6 +950,8 @@ const Home = () => {
     </div>
   </div>
 );
+
+};
 
 function App() {
   return (
