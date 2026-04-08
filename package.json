@@ -7,6 +7,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+  "sync:docs": "bash ./sync-docs.sh",
+  "build:docs": "npm run build && npm run sync:docs",
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
